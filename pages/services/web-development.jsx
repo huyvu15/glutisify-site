@@ -1,6 +1,6 @@
 import Head from 'next/head'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+import Header from '../../components/Header'
+import Footer from '../../components/Footer'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { Globe, Code, Smartphone, Database, Zap, CheckCircle, ArrowRight } from 'lucide-react'
