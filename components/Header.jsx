@@ -155,7 +155,7 @@ const Header = () => {
             ))}
           </div>
 
-           {/* Simple CTA Button */}
+           {/* Modern CTA Button */}
            <motion.div
              initial={{ opacity: 0, scale: 0.8 }}
              animate={{ opacity: 1, scale: 1 }}
@@ -163,12 +163,47 @@ const Header = () => {
              className="hidden lg:block"
            >
              <motion.button
-               whileHover={{ scale: 1.05 }}
-               whileTap={{ scale: 0.95 }}
+               whileHover={{ 
+                 scale: 1.05,
+                 y: -2,
+                 boxShadow: '0 10px 25px rgba(34, 197, 94, 0.3)'
+               }}
+               whileTap={{ scale: 0.95, y: 0 }}
                onClick={() => handleNavigation('/contact')}
-               className="btn-primary shadow-lg hover:shadow-xl"
+               className="group relative overflow-hidden bg-gradient-to-r from-primary-500/80 via-primary-600/80 to-accent-500/80 hover:from-primary-600/90 hover:via-primary-700/90 hover:to-accent-600/90 text-white font-semibold py-2.5 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 border border-primary-400/20"
              >
-               Liên hệ ngay
+               {/* Animated background shimmer */}
+               <motion.div
+                 animate={{
+                   x: ['-100%', '100%'],
+                 }}
+                 transition={{
+                   duration: 2.5,
+                   repeat: Infinity,
+                   ease: "linear"
+                 }}
+                 className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12"
+               />
+               
+               {/* Text with subtle animation */}
+               <motion.span
+                 whileHover={{ x: 1 }}
+                 transition={{ duration: 0.2 }}
+                 className="relative z-10 font-medium tracking-wide"
+               >
+                 Liên hệ ngay
+               </motion.span>
+               
+               {/* Ripple effect */}
+               <motion.div
+                 initial={{ scale: 0, opacity: 0 }}
+                 whileTap={{ 
+                   scale: 1.5, 
+                   opacity: [0, 0.2, 0],
+                   transition: { duration: 0.4 }
+                 }}
+                 className="absolute inset-0 bg-white/20 rounded-xl"
+               />
              </motion.button>
            </motion.div>
 
@@ -251,10 +286,39 @@ const Header = () => {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 }}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                     onClick={() => handleNavigation('/contact')}
-                    className="btn-primary w-full"
+                    className="group relative overflow-hidden bg-gradient-to-r from-primary-500/80 via-primary-600/80 to-accent-500/80 hover:from-primary-600/90 hover:via-primary-700/90 hover:to-accent-600/90 text-white font-semibold py-3 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 w-full border border-primary-400/20"
                   >
-                    Liên hệ ngay
+                    {/* Animated background shimmer */}
+                    <motion.div
+                      animate={{
+                        x: ['-100%', '100%'],
+                      }}
+                      transition={{
+                        duration: 2.5,
+                        repeat: Infinity,
+                        ease: "linear"
+                      }}
+                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12"
+                    />
+                    
+                    {/* Text */}
+                    <span className="relative z-10 font-medium tracking-wide">
+                      Liên hệ ngay
+                    </span>
+                    
+                    {/* Ripple effect */}
+                    <motion.div
+                      initial={{ scale: 0, opacity: 0 }}
+                      whileTap={{ 
+                        scale: 1.5, 
+                        opacity: [0, 0.2, 0],
+                        transition: { duration: 0.4 }
+                      }}
+                      className="absolute inset-0 bg-white/20 rounded-xl"
+                    />
                   </motion.button>
                 </div>
               </div>

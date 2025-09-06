@@ -1,17 +1,11 @@
 import { motion } from 'framer-motion'
-import { ChevronDown, Play, ArrowRight, Star, Users, Award, Globe } from 'lucide-react'
+import { ChevronDown, Play, ArrowRight } from 'lucide-react'
 
 const Hero = () => {
   const scrollToNext = () => {
     window.location.href = '/about'
   }
 
-  const stats = [
-    { icon: Users, number: '300+', label: 'Doanh nghiệp toàn cầu' },
-    { icon: Award, number: '8+', label: 'Năm kinh nghiệm' },
-    { icon: Globe, number: '150+', label: 'Chuyên gia AI' },
-    { icon: Star, number: '24/7', label: 'Hỗ trợ khách hàng' },
-  ]
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
@@ -101,31 +95,15 @@ const Hero = () => {
              initial={{ opacity: 0, y: 30 }}
              animate={{ opacity: 1, y: 0 }}
              transition={{ duration: 0.8, delay: 0.6 }}
-             className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-white leading-tight"
+             className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white leading-tight"
            >
              <motion.span 
                initial={{ opacity: 0, x: -50 }}
                animate={{ opacity: 1, x: 0 }}
                transition={{ duration: 0.8, delay: 0.8 }}
-               className="block mb-6 text-white/90"
-             >
-               Dẫn Đầu
-             </motion.span>
-             <motion.span 
-               initial={{ opacity: 0, x: 50 }}
-               animate={{ opacity: 1, x: 0 }}
-               transition={{ duration: 0.8, delay: 1.0 }}
                className="block text-gradient bg-gradient-to-r from-primary-500 via-primary-600 to-accent-500 bg-clip-text text-transparent"
              >
-               Công Nghệ AI
-             </motion.span>
-             <motion.span 
-               initial={{ opacity: 0, y: 30 }}
-               animate={{ opacity: 1, y: 0 }}
-               transition={{ duration: 0.8, delay: 1.2 }}
-               className="block mt-6 text-white/90"
-             >
-               Từ Việt Nam
+               Glutisify Vietnam
              </motion.span>
            </motion.h1>
 
@@ -133,18 +111,18 @@ const Hero = () => {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.4 }}
-            className="text-lg md:text-xl lg:text-2xl text-gray-200 mb-12 max-w-3xl mx-auto leading-relaxed"
+            transition={{ duration: 0.8, delay: 1.0 }}
+            className="text-lg md:text-xl lg:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto leading-relaxed"
           >
-            Giải pháp AI & Big Data tiên tiến từ Việt Nam
+            Cung cấp sản phẩm và dịch vụ chất lượng quốc tế
           </motion.p>
 
            {/* Modern CTA Buttons */}
            <motion.div
              initial={{ opacity: 0, y: 20 }}
              animate={{ opacity: 1, y: 0 }}
-             transition={{ duration: 0.8, delay: 1.6 }}
-             className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
+             transition={{ duration: 0.8, delay: 1.2 }}
+             className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
            >
              <motion.button
                whileHover={{ 
@@ -169,66 +147,61 @@ const Hero = () => {
              <motion.button
                whileHover={{ 
                  scale: 1.05,
-                 y: -2,
-                 boxShadow: '0 25px 50px rgba(255, 255, 255, 0.2)'
+                 y: -3,
+                 boxShadow: '0 20px 40px rgba(255, 255, 255, 0.15)',
+                 borderColor: 'rgba(255, 255, 255, 0.5)'
                }}
-               whileTap={{ scale: 0.95 }}
-               className="group relative overflow-hidden bg-white/20 backdrop-blur-md border-2 border-white/30 text-white font-semibold py-3 px-6 rounded-xl hover:bg-white/30 transition-all duration-300 flex items-center gap-2"
+               whileTap={{ scale: 0.95, y: 0 }}
+               onClick={() => window.location.href = '/contact'}
+               className="group relative overflow-hidden bg-gradient-to-r from-white/10 via-white/20 to-white/10 backdrop-blur-lg border-2 border-white/30 text-white font-semibold py-3 px-8 rounded-2xl hover:from-white/20 hover:via-white/30 hover:to-white/20 transition-all duration-300 flex items-center gap-3 shadow-xl"
              >
+               {/* Animated background shimmer */}
                <motion.div
-                 whileHover={{ scale: 1.1 }}
-                 transition={{ duration: 0.2 }}
+                 animate={{
+                   x: ['-100%', '100%'],
+                 }}
+                 transition={{
+                   duration: 2,
+                   repeat: Infinity,
+                   ease: "linear"
+                 }}
+                 className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12"
+               />
+               
+               {/* Icon with enhanced animation */}
+               <motion.div
+                 whileHover={{ 
+                   scale: 1.15,
+                   rotate: [0, -5, 5, 0]
+                 }}
+                 transition={{ duration: 0.3 }}
+                 className="relative z-10"
                >
-                 <Play size={20} />
+                 <Play size={18} className="drop-shadow-sm" />
                </motion.div>
-               <span>Liên Hệ Ngay</span>
+               
+               {/* Text with subtle animation */}
+               <motion.span
+                 whileHover={{ x: 2 }}
+                 transition={{ duration: 0.2 }}
+                 className="relative z-10 font-medium tracking-wide"
+               >
+                 Liên Hệ Ngay
+               </motion.span>
+               
+               {/* Ripple effect */}
+               <motion.div
+                 initial={{ scale: 0, opacity: 0 }}
+                 whileTap={{ 
+                   scale: 1.5, 
+                   opacity: [0, 0.2, 0],
+                   transition: { duration: 0.4 }
+                 }}
+                 className="absolute inset-0 bg-white/20 rounded-2xl"
+               />
              </motion.button>
            </motion.div>
 
-           {/* Modern Stats */}
-           <motion.div
-             initial={{ opacity: 0, y: 30 }}
-             animate={{ opacity: 1, y: 0 }}
-             transition={{ duration: 0.8, delay: 1.8 }}
-             className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto"
-           >
-             {stats.map((stat, index) => (
-               <motion.div
-                 key={index}
-                 initial={{ opacity: 0, scale: 0.8 }}
-                 animate={{ opacity: 1, scale: 1 }}
-                 transition={{ duration: 0.5, delay: 2.0 + index * 0.1 }}
-                 whileHover={{ 
-                   scale: 1.05, 
-                   y: -5,
-                   boxShadow: '0 20px 40px rgba(255, 255, 255, 0.1)'
-                 }}
-                 className="text-center group"
-               >
-                 <motion.div
-                   whileHover={{ 
-                     rotate: 360,
-                     scale: 1.1
-                   }}
-                   transition={{ duration: 0.6 }}
-                   className="w-16 h-16 bg-gradient-to-br from-white/20 to-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:from-white/30 group-hover:to-white/20 transition-all duration-300 shadow-lg border border-white/20"
-                 >
-                   <stat.icon className="w-8 h-8 text-white" />
-                 </motion.div>
-                 <motion.div 
-                   initial={{ opacity: 0 }}
-                   animate={{ opacity: 1 }}
-                   transition={{ delay: 2.2 + index * 0.1 }}
-                   className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent mb-2"
-                 >
-                   {stat.number}
-                 </motion.div>
-                 <div className="text-xs md:text-sm text-white/80 font-medium">
-                   {stat.label}
-                 </div>
-               </motion.div>
-             ))}
-           </motion.div>
         </motion.div>
       </div>
 
@@ -236,7 +209,7 @@ const Hero = () => {
        <motion.button
          initial={{ opacity: 0 }}
          animate={{ opacity: 1 }}
-         transition={{ duration: 0.8, delay: 2.4 }}
+         transition={{ duration: 0.8, delay: 1.6 }}
          onClick={scrollToNext}
          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white hover:text-primary-400 transition-colors duration-200 z-30"
        >

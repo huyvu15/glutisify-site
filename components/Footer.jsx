@@ -191,30 +191,90 @@ const Footer = () => {
         </div>
 
         {/* Footer Bottom */}
-        <div className="border-t border-slate-700 pt-8 text-center">
+        <div className="border-t border-slate-700 pt-6 text-center">
           <motion.p
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="text-gray-400"
+            className="text-gray-400 text-sm"
           >
-            © 2025 <span className="text-white font-semibold">Gluti</span><span className="text-primary-500 font-semibold">sify</span>. Bảo lưu mọi quyền. Made with ❤️ in Vietnam
+            © 2025 <span className="text-white font-semibold">Gluti</span><span className="text-primary-500 font-semibold">sify</span>. Made with ❤️ in Vietnam
           </motion.p>
         </div>
       </div>
 
-      {/* Scroll to Top Button */}
+      {/* Modern Scroll to Top Button */}
       <motion.button
-        initial={{ opacity: 0, scale: 0 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5, delay: 1 }}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
+        initial={{ opacity: 0, scale: 0, y: 100 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ 
+          duration: 0.6, 
+          delay: 1,
+          type: "spring",
+          stiffness: 200,
+          damping: 20
+        }}
+        whileHover={{ 
+          scale: 1.15,
+          y: -5,
+          boxShadow: "0 20px 40px rgba(34, 197, 94, 0.4)",
+          rotate: [0, -5, 5, 0]
+        }}
+        whileTap={{ 
+          scale: 0.95,
+          y: 0
+        }}
         onClick={scrollToTop}
-        className="fixed bottom-8 right-8 w-12 h-12 bg-primary-500 hover:bg-primary-600 text-white rounded-full shadow-lg flex items-center justify-center transition-colors duration-200 z-50"
+        className="group fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-br from-primary-500 via-primary-600 to-accent-500 hover:from-primary-600 hover:via-primary-700 hover:to-accent-600 text-white rounded-2xl shadow-2xl flex items-center justify-center transition-all duration-300 z-50 border-2 border-white/20 backdrop-blur-md"
         aria-label="Scroll to top"
       >
-        <ArrowUp size={20} />
+        {/* Animated background glow */}
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.6, 0.3]
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute inset-0 bg-gradient-to-br from-primary-400 to-accent-400 rounded-2xl blur-md -z-10"
+        />
+        
+        {/* Icon with animation */}
+        <motion.div
+          whileHover={{ 
+            y: -2,
+            rotate: [0, -10, 10, 0]
+          }}
+          transition={{ duration: 0.3 }}
+          className="relative z-10"
+        >
+          <ArrowUp size={22} className="drop-shadow-lg" />
+        </motion.div>
+        
+        {/* Ripple effect on click */}
+        <motion.div
+          initial={{ scale: 0, opacity: 0 }}
+          whileTap={{ 
+            scale: 1.5, 
+            opacity: [0, 0.3, 0],
+            transition: { duration: 0.4 }
+          }}
+          className="absolute inset-0 bg-white/30 rounded-2xl"
+        />
+        
+        {/* Tooltip */}
+        <motion.div
+          initial={{ opacity: 0, x: 10, scale: 0.8 }}
+          whileHover={{ opacity: 1, x: 0, scale: 1 }}
+          transition={{ duration: 0.2 }}
+          className="absolute right-full mr-3 px-3 py-1 bg-slate-800 text-white text-sm rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none"
+        >
+          Lên đầu trang
+          <div className="absolute left-full top-1/2 transform -translate-y-1/2 w-0 h-0 border-l-4 border-l-slate-800 border-t-4 border-t-transparent border-b-4 border-b-transparent" />
+        </motion.div>
       </motion.button>
     </footer>
   )
