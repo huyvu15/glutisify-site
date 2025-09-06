@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  
+  <!-- Homepage -->
+  <url>
+    <loc>https://glutisify.com.vn/</loc>
+    <lastmod>2023-12-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- About Page -->
+  <url>
+    <loc>https://glutisify.com.vn/about</loc>
+    <lastmod>2023-12-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Services Page -->
+  <url>
+    <loc>https://glutisify.com.vn/services</loc>
+    <lastmod>2023-12-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Web Development Service -->
+  <url>
+    <loc>https://glutisify.com.vn/services/web-development</loc>
+    <lastmod>2023-12-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Mobile App Service -->
+  <url>
+    <loc>https://glutisify.com.vn/services/mobile-app</loc>
+    <lastmod>2023-12-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- System Integration Service -->
+  <url>
+    <loc>https://glutisify.com.vn/services/system-integration</loc>
+    <lastmod>2023-12-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Labor Service -->
+  <url>
+    <loc>https://glutisify.com.vn/services/labor-service</loc>
+    <lastmod>2023-12-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Projects Page -->
+  <url>
+    <loc>https://glutisify.com.vn/projects</loc>
+    <lastmod>2023-12-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Contact Page -->
+  <url>
+    <loc>https://glutisify.com.vn/contact</loc>
+    <lastmod>2023-12-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+</urlset>

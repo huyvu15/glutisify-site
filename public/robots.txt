@@ -1,0 +1,25 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://glutisify.com.vn/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Disallow admin areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /static/
+
+# Allow important pages
+Allow: /
+Allow: /about
+Allow: /services
+Allow: /services/web-development
+Allow: /services/mobile-app
+Allow: /services/system-integration
+Allow: /services/labor-service
+Allow: /projects
+Allow: /contact
