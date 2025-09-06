@@ -199,15 +199,6 @@ const Services = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={inView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="inline-flex items-center px-4 py-2 bg-primary-100 text-primary-700 rounded-full text-sm font-medium mb-6 border border-primary-200"
-          >
-            <Zap size={16} className="mr-2" />
-            Dịch vụ của chúng tôi
-          </motion.div>
           
           <h2 className="heading-lg text-gray-900 mb-6">
             Giải pháp công nghệ{' '}
@@ -323,7 +314,7 @@ const Services = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="mb-20"
+          className="mb-12"
         >
           <div className="text-center mb-12">
             <h3 className="heading-md text-gray-900 mb-4">
@@ -367,7 +358,7 @@ const Services = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 rounded-3xl p-8 md:p-12 mb-20 text-white relative overflow-hidden"
+          className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 rounded-3xl p-8 md:p-12 mb-12 text-white relative overflow-hidden"
         >
           {/* Background Pattern */}
           <div className="absolute inset-0 bg-hero-pattern opacity-5" />
@@ -416,7 +407,7 @@ const Services = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.7 }}
-          className="mb-20"
+          className="mb-12"
         >
           <div className="text-center mb-12">
             <h3 className="heading-md text-gray-900 mb-4">
@@ -459,7 +450,7 @@ const Services = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="bg-gradient-to-r from-primary-600 to-accent-500 rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden"
+          className="bg-gradient-to-r from-primary-600 to-accent-500 rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden mb-8"
         >
           {/* Background Pattern */}
           <div className="absolute inset-0 bg-hero-pattern opacity-10" />
