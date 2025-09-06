@@ -98,28 +98,19 @@ const About = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-16"
         >
-          {/* <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={inView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="inline-flex items-center px-4 py-2 bg-primary-100 text-primary-700 rounded-full text-sm font-medium mb-6"
-          >
-            
-          </motion.div> */}
-          
-          <h2 className="heading-lg text-gray-900 mb-6">
-            Đối Tác Tin Cậy Từ Trái Tim Việt Nam
+          <h2 className="heading-lg text-gray-900 mb-4">
+            Về <span className="text-gradient">Glutisify</span>
           </h2>
           
-          <p className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            Với hơn 8 năm kinh nghiệm trong lĩnh vực outsourcing công nghệ, Glutisify đã giúp 300+ doanh nghiệp trên toàn cầu đạt được mục tiêu chuyển đổi số.
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Đối tác tin cậy trong lĩnh vực công nghệ với hơn 8 năm kinh nghiệm, giúp 300+ doanh nghiệp toàn cầu chuyển đổi số thành công.
           </p>
         </motion.div>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {features.map((feature, index) => (
             <motion.div
               key={index}
@@ -151,13 +142,13 @@ const About = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="mb-20"
+          className="mb-16"
         >
-          <div className="text-center mb-16">
-            <h3 className="heading-md text-gray-900 mb-6">
+          <div className="text-center mb-12">
+            <h3 className="heading-md text-gray-900 mb-4">
               Tầm nhìn, Sứ mệnh & Giá trị cốt lõi
             </h3>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Định hướng và giá trị mà chúng tôi theo đuổi trong mọi hoạt động
             </p>
           </div>
@@ -195,13 +186,13 @@ const About = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mb-20"
+          className="mb-16"
         >
-          <div className="text-center mb-16">
-            <h3 className="heading-md text-gray-900 mb-6">
+          <div className="text-center mb-12">
+            <h3 className="heading-md text-gray-900 mb-4">
               Đội ngũ lãnh đạo
             </h3>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Những con người tài năng đứng sau sự thành công của Glutisify
             </p>
           </div>
@@ -213,50 +204,79 @@ const About = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-                whileHover={{ y: -5 }}
-                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 text-center border border-slate-100"
+                whileHover={{ y: -8, scale: 1.02 }}
+                className="group relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 text-center border border-slate-100 overflow-hidden"
               >
+                {/* Background gradient on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-accent-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                
                 <motion.div
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ scale: 1.1, rotate: 5 }}
                   transition={{ duration: 0.3 }}
-                  className="relative mb-6"
+                  className="relative mb-6 z-10"
                 >
-                  <img
-                    src={member.avatar}
-                    alt={member.name}
-                    className="w-32 h-32 rounded-full mx-auto object-cover shadow-lg"
-                  />
-                  <div className="absolute -bottom-2 -right-2 bg-gradient-to-r from-primary-500 to-accent-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
-                    {member.experience}
+                  <div className="relative w-28 h-28 mx-auto">
+                    <img
+                      src={member.avatar}
+                      alt={member.name}
+                      className="w-full h-full rounded-full object-cover shadow-xl border-4 border-white"
+                    />
+                    {/* Animated ring */}
+                    <div className="absolute inset-0 rounded-full border-2 border-transparent bg-gradient-to-r from-primary-500 to-accent-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-spin" style={{ animationDuration: '3s' }} />
                   </div>
+                  
+                  {/* Experience badge */}
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    className="absolute -bottom-1 -right-1 bg-gradient-to-r from-primary-500 to-accent-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg"
+                  >
+                    {member.experience}
+                  </motion.div>
                 </motion.div>
-                <h4 className="text-xl font-semibold text-gray-900 mb-2">
-                  {member.name}
-                </h4>
-                <p className="text-primary-600 font-medium mb-4">
-                  {member.position}
-                </p>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  {member.description}
-                </p>
+                
+                <div className="relative z-10">
+                  <h4 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors duration-300">
+                    {member.name}
+                  </h4>
+                  <p className="text-primary-600 font-semibold mb-4 text-sm">
+                    {member.position}
+                  </p>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    {member.description}
+                  </p>
+                  
+                  {/* Social links placeholder */}
+                  <div className="mt-4 flex justify-center space-x-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-primary-500 hover:text-white transition-colors duration-200 cursor-pointer">
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                      </svg>
+                    </div>
+                    <div className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-primary-500 hover:text-white transition-colors duration-200 cursor-pointer">
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
         </motion.div>
 
         {/* Story Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <h3 className="heading-md text-gray-900 mb-8">
+            <h3 className="heading-md text-gray-900 mb-6">
               Câu chuyện của chúng tôi
             </h3>
             
-            <div className="space-y-6 text-gray-600 leading-relaxed">
-              <p className="text-lg">
+            <div className="space-y-4 text-gray-600 leading-relaxed">
+              <p>
                 Với hơn 8 năm kinh nghiệm trong lĩnh vực outsourcing công nghệ, Glutisify đã giúp 300+ doanh nghiệp 
                 trên toàn cầu đạt được mục tiêu chuyển đổi số thông qua các giải pháp AI & Big Data tiên tiến.
               </p>
@@ -264,16 +284,12 @@ const About = () => {
                 Đội ngũ 150+ chuyên gia được chứng nhận quốc tế của chúng tôi tại Việt Nam cam kết mang đến những 
                 dự án chất lượng cao, đúng tiến độ và vượt trên mong đợi của khách hàng toàn cầu.
               </p>
-              <p>
-                Chúng tôi tin rằng với sự kết hợp giữa kinh nghiệm quốc tế và hiểu biết sâu sắc về thị trường 
-                trong nước, chúng tôi có thể tạo ra những giá trị bền vững cho khách hàng.
-              </p>
             </div>
 
             {/* Achievements */}
-            <div className="mt-8">
-              <h4 className="text-lg font-semibold text-gray-900 mb-4">Thành tựu nổi bật</h4>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div className="mt-6">
+              <h4 className="text-lg font-semibold text-gray-900 mb-3">Thành tựu nổi bật</h4>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {achievements.map((achievement, index) => (
                   <motion.div
                     key={index}
@@ -282,7 +298,7 @@ const About = () => {
                     transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
                     className="flex items-center text-gray-700"
                   >
-                    <CheckCircle size={16} className="text-green-500 mr-3 flex-shrink-0" />
+                    <CheckCircle size={14} className="text-green-500 mr-2 flex-shrink-0" />
                     <span className="text-sm">{achievement}</span>
                   </motion.div>
                 ))}
@@ -293,7 +309,7 @@ const About = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => document.querySelector('#services')?.scrollIntoView({ behavior: 'smooth' })}
-              className="mt-8 btn-primary flex items-center gap-2"
+              className="mt-6 btn-primary flex items-center gap-2"
             >
               Khám phá dịch vụ
               <ArrowRight size={16} />
