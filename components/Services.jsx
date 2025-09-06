@@ -10,7 +10,16 @@ import {
   ArrowRight,
   CheckCircle,
   Star,
-  Zap
+  Zap,
+  Shield,
+  Clock,
+  Award,
+  Target,
+  TrendingUp,
+  Headphones,
+  MessageCircle,
+  FileText,
+  Settings
 } from 'lucide-react'
 
 const Services = () => {
@@ -73,6 +82,86 @@ const Services = () => {
       color: 'from-teal-500 to-blue-500',
       bgColor: 'bg-teal-50',
       iconColor: 'text-teal-600'
+    },
+    {
+      icon: Shield,
+      title: 'Bảo mật & An ninh mạng',
+      description: 'Bảo vệ hệ thống và dữ liệu của bạn với các giải pháp bảo mật tiên tiến và chuyên nghiệp.',
+      features: ['Security Audit', 'Penetration Testing', 'Data Encryption', 'Compliance Management'],
+      color: 'from-red-500 to-pink-500',
+      bgColor: 'bg-red-50',
+      iconColor: 'text-red-600'
+    },
+    {
+      icon: Target,
+      title: 'Tư vấn Công nghệ',
+      description: 'Tư vấn chiến lược công nghệ và chuyển đổi số để tối ưu hóa quy trình kinh doanh.',
+      features: ['Digital Transformation', 'Technology Strategy', 'Process Optimization', 'ROI Analysis'],
+      color: 'from-yellow-500 to-orange-500',
+      bgColor: 'bg-yellow-50',
+      iconColor: 'text-yellow-600'
+    },
+    {
+      icon: Settings,
+      title: 'Bảo trì & Hỗ trợ',
+      description: 'Dịch vụ bảo trì và hỗ trợ 24/7 để đảm bảo hệ thống hoạt động ổn định và liên tục.',
+      features: ['24/7 Support', 'System Maintenance', 'Performance Monitoring', 'Emergency Response'],
+      color: 'from-gray-500 to-slate-500',
+      bgColor: 'bg-gray-50',
+      iconColor: 'text-gray-600'
+    }
+  ]
+
+  const benefits = [
+    {
+      icon: Clock,
+      title: 'Tiết kiệm thời gian',
+      description: 'Quy trình làm việc tối ưu giúp giảm 50% thời gian phát triển dự án',
+      color: 'from-blue-500 to-cyan-500'
+    },
+    {
+      icon: TrendingUp,
+      title: 'Tăng hiệu suất',
+      description: 'Cải thiện hiệu suất hệ thống lên đến 300% với công nghệ tiên tiến',
+      color: 'from-green-500 to-emerald-500'
+    },
+    {
+      icon: Award,
+      title: 'Chất lượng cao',
+      description: 'Đảm bảo chất lượng sản phẩm với quy trình kiểm thử nghiêm ngặt',
+      color: 'from-purple-500 to-pink-500'
+    },
+    {
+      icon: Headphones,
+      title: 'Hỗ trợ 24/7',
+      description: 'Đội ngũ hỗ trợ chuyên nghiệp sẵn sàng 24/7 cho mọi vấn đề',
+      color: 'from-orange-500 to-red-500'
+    }
+  ]
+
+  const stats = [
+    { number: '500+', label: 'Dự án hoàn thành', icon: Target },
+    { number: '98%', label: 'Khách hàng hài lòng', icon: Star },
+    { number: '24/7', label: 'Hỗ trợ khách hàng', icon: Headphones },
+    { number: '5+', label: 'Năm kinh nghiệm', icon: Award }
+  ]
+
+  const faqs = [
+    {
+      question: 'Thời gian phát triển một dự án web thường mất bao lâu?',
+      answer: 'Thời gian phát triển phụ thuộc vào độ phức tạp của dự án. Thông thường, một website cơ bản mất 2-4 tuần, website phức tạp mất 2-3 tháng.'
+    },
+    {
+      question: 'Bạn có cung cấp dịch vụ bảo trì sau khi hoàn thành dự án không?',
+      answer: 'Có, chúng tôi cung cấp dịch vụ bảo trì và hỗ trợ 24/7 sau khi dự án hoàn thành với các gói dịch vụ linh hoạt.'
+    },
+    {
+      question: 'Chi phí phát triển ứng dụng di động là bao nhiêu?',
+      answer: 'Chi phí phụ thuộc vào tính năng và độ phức tạp. Chúng tôi cung cấp báo giá miễn phí sau khi tư vấn chi tiết về yêu cầu.'
+    },
+    {
+      question: 'Bạn có hỗ trợ chuyển đổi dữ liệu từ hệ thống cũ không?',
+      answer: 'Có, chúng tôi có kinh nghiệm trong việc di chuyển và chuyển đổi dữ liệu từ các hệ thống legacy sang công nghệ mới.'
     }
   ]
 
@@ -224,6 +313,142 @@ const Services = () => {
                 {index < processSteps.length - 1 && (
                   <div className="hidden lg:block absolute top-8 left-full w-full h-0.5 bg-gradient-to-r from-primary-200 to-accent-200 -translate-x-1/2" />
                 )}
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Benefits Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="mb-20"
+        >
+          <div className="text-center mb-12">
+            <h3 className="heading-md text-gray-900 mb-4">
+              Tại sao chọn chúng tôi?
+            </h3>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Chúng tôi cam kết mang đến những giá trị vượt trội cho khách hàng
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {benefits.map((benefit, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.7 + index * 0.1 }}
+                whileHover={{ y: -5 }}
+                className="text-center group"
+              >
+                <motion.div
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ duration: 0.3 }}
+                  className={`w-16 h-16 bg-gradient-to-r ${benefit.color} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:shadow-lg transition-all duration-300`}
+                >
+                  <benefit.icon className="w-8 h-8 text-white" />
+                </motion.div>
+                <h4 className="text-lg font-semibold text-gray-900 mb-3">
+                  {benefit.title}
+                </h4>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {benefit.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Stats Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 rounded-3xl p-8 md:p-12 mb-20 text-white relative overflow-hidden"
+        >
+          {/* Background Pattern */}
+          <div className="absolute inset-0 bg-hero-pattern opacity-5" />
+          
+          <div className="relative z-10">
+            <div className="text-center mb-12">
+              <h3 className="heading-md mb-4">
+                Thành tựu của chúng tôi
+              </h3>
+              <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+                Những con số ấn tượng phản ánh chất lượng dịch vụ và sự tin tưởng của khách hàng
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              {stats.map((stat, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={inView ? { opacity: 1, scale: 1 } : {}}
+                  transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
+                  whileHover={{ scale: 1.05 }}
+                  className="text-center group"
+                >
+                  <motion.div
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.6 }}
+                    className="w-16 h-16 bg-gradient-to-r from-primary-500 to-accent-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:shadow-lg transition-all duration-300"
+                  >
+                    <stat.icon className="w-8 h-8 text-white" />
+                  </motion.div>
+                  <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent mb-2">
+                    {stat.number}
+                  </div>
+                  <div className="text-sm text-gray-300 font-medium">
+                    {stat.label}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+
+        {/* FAQ Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.7 }}
+          className="mb-20"
+        >
+          <div className="text-center mb-12">
+            <h3 className="heading-md text-gray-900 mb-4">
+              Câu hỏi thường gặp
+            </h3>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Những câu hỏi phổ biến về dịch vụ của chúng tôi
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto space-y-6">
+            {faqs.map((faq, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
+                className="bg-white rounded-2xl p-6 shadow-lg border border-slate-100 hover:shadow-xl transition-all duration-300"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="w-8 h-8 bg-gradient-to-r from-primary-500 to-accent-500 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                    <MessageCircle className="w-4 h-4 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="text-lg font-semibold text-gray-900 mb-3">
+                      {faq.question}
+                    </h4>
+                    <p className="text-gray-600 leading-relaxed">
+                      {faq.answer}
+                    </p>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>

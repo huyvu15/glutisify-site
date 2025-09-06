@@ -35,7 +35,7 @@ const Contact = () => {
     {
       icon: MapPin,
       title: 'Địa chỉ',
-      details: ['123 Đường ABC, Quận 1', 'TP.HCM, Việt Nam'],
+      details: ['12 Chính Kinh, Thanh Xuân', 'Hà Nội, Việt Nam'],
       color: 'text-blue-600',
       bgColor: 'bg-blue-50'
     },
@@ -49,7 +49,7 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'Email',
-      details: ['info@paraline.com.vn', 'support@paraline.com.vn'],
+      details: ['hello@glutisify.vn', 'support@glutisify.vn'],
       color: 'text-purple-600',
       bgColor: 'bg-purple-50'
     },
@@ -159,17 +159,49 @@ const Contact = () => {
               ))}
             </div>
 
-            {/* Map Placeholder */}
+            {/* Interactive Map */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.7 }}
-              className="mt-8 rounded-2xl overflow-hidden shadow-soft"
+              className="mt-8 rounded-2xl overflow-hidden shadow-soft border border-slate-200"
             >
-              <div className="w-full h-48 bg-slate-200 flex items-center justify-center">
-                <div className="text-center text-gray-500">
-                  <MapPin size={32} className="mx-auto mb-2" />
-                  <p className="text-sm">Bản đồ vị trí</p>
+              <div className="relative w-full h-64">
+                {/* Google Maps Embed */}
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.3253156358!2d106.6641!3d10.7769!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752ed2392c44df%3A0xd2ecb62e0d050fe9!2sHo%20Chi%20Minh%20City%2C%20Vietnam!5e0!3m2!1sen!2s!4v1640995200000!5m2!1sen!2s"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Glutisify Vietnam Location"
+                  className="rounded-2xl"
+                />
+                
+                {/* Map Overlay with Company Info */}
+                <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-lg max-w-xs">
+                  <div className="flex items-start gap-3">
+                    <div className="w-10 h-10 bg-gradient-to-r from-primary-500 to-accent-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <MapPin className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900 text-sm mb-1">Glutisify Vietnam</h4>
+                      <p className="text-xs text-gray-600 leading-relaxed">
+                        12 Chính Kinh, Thanh Xuân<br />
+                        Hà Nội, Việt Nam
+                      </p>
+                      <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="mt-2 text-xs bg-primary-500 text-white px-3 py-1 rounded-lg hover:bg-primary-600 transition-colors duration-200"
+                        onClick={() => window.open('https://maps.google.com/?q=12+Chính+Kinh,+Thanh+Xuân,+Hà+Nội', '_blank')}
+                      >
+                        Chỉ đường
+                      </motion.button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </motion.div>
