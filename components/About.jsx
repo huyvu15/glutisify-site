@@ -37,25 +37,25 @@ const About = () => {
 
   const teamMembers = [
     {
-      name: 'Nguyễn Văn A',
+      name: 'Vũ Văn Huy',
       position: 'CEO - Chief Executive Officer',
-      description: 'Tốt nghiệp Đại học Tokyo, 10+ năm kinh nghiệm tại các công ty công nghệ hàng đầu Nhật Bản',
+      description: 'Tốt nghiệp Đại học Bách Khoa Hà Nội, 5+ năm kinh nghiệm tại các công ty công nghệ hàng đầu Việt Nam',
       avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
-      experience: '10+ năm'
+      experience: '5+ năm'
     },
     {
-      name: 'Trần Thị B',
+      name: 'Lê Thành Đạt',
       position: 'CTO - Chief Technology Officer',
       description: 'Thạc sĩ Công nghệ thông tin tại Úc, chuyên gia về AI và Machine Learning',
       avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
-      experience: '8+ năm'
+      experience: '3+ năm'
     },
     {
-      name: 'Lê Văn C',
+      name: 'Nguyễn Phúc Lịnh',
       position: 'CCO - Chief Commercial Officer',
       description: 'Cử nhân Kinh tế tại Melbourne, chuyên gia về phát triển thị trường và quan hệ khách hàng',
       avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
-      experience: '7+ năm'
+      experience: '2+ năm'
     }
   ]
 
