@@ -114,7 +114,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 1.0 }}
             className="text-lg md:text-xl lg:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto leading-relaxed"
           >
-            Cung cấp sản phẩm và dịch vụ chất lượng quốc tế
+            Cung cấp giải pháp thông minh cho doanh nghiệp
           </motion.p>
 
            {/* Modern CTA Buttons */}

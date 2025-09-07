@@ -1,6 +1,21 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { Users, Target, Award, Globe, CheckCircle, ArrowRight, Eye, Heart, Lightbulb } from 'lucide-react'
+import { 
+  Cpu, 
+  Gem, 
+  Rocket, 
+  MessageCircle, 
+  CheckCircle, 
+  ArrowRight, 
+  Compass, 
+  Sparkles, 
+  Crown,
+  Star,
+  Award,
+  Users,
+  TrendingUp,
+  Globe
+} from 'lucide-react'
 
 const About = () => {
   const [ref, inView] = useInView({
@@ -10,28 +25,28 @@ const About = () => {
 
   const features = [
     {
-      icon: Users,
+      icon: Cpu,
       title: 'Chuyên Môn AI & Big Data',
       description: 'Đội ngũ 150+ chuyên gia được chứng nhận quốc tế tại Việt Nam',
-      color: 'from-primary-500 to-primary-600'
+      color: 'from-indigo-500 to-purple-500'
     },
     {
-      icon: Target,
+      icon: Gem,
       title: 'Chất Lượng Cao',
       description: 'Cam kết chất lượng cao nhất trong mọi dự án, đúng tiến độ và vượt trên mong đợi',
-      color: 'from-accent-500 to-accent-600'
+      color: 'from-emerald-500 to-teal-500'
     },
     {
-      icon: Award,
+      icon: Rocket,
       title: 'Đúng Tiến Độ',
       description: 'Giao dự án đúng hạn với kế hoạch chi tiết và quản lý chuyên nghiệp',
-      color: 'from-brand-teal to-brand-blue'
+      color: 'from-orange-500 to-red-500'
     },
     {
-      icon: Globe,
+      icon: MessageCircle,
       title: 'Hỗ Trợ 24/7',
       description: 'Đội ngũ hỗ trợ khách hàng toàn cầu 24/7 với kinh nghiệm sâu rộng',
-      color: 'from-primary-600 to-accent-500'
+      color: 'from-blue-500 to-cyan-500'
     }
   ]
 
@@ -61,22 +76,22 @@ const About = () => {
 
   const visionMission = [
     {
-      icon: Eye,
+      icon: Compass,
       title: 'Tầm Nhìn',
       description: 'Trở thành đối tác outsourcing AI & Big Data hàng đầu từ Việt Nam, được tin tưởng bởi các doanh nghiệp toàn cầu trong hành trình chuyển đổi số.',
-      color: 'from-primary-500 to-primary-600'
+      color: 'from-violet-500 to-purple-500'
     },
     {
-      icon: Heart,
+      icon: Sparkles,
       title: 'Sứ Mệnh',
       description: 'Mang đến giải pháp công nghệ tiên tiến, chất lượng cao với chi phí hợp lý, giúp doanh nghiệp tăng tốc đổi mới và cạnh tranh trong thời đại số.',
-      color: 'from-accent-500 to-accent-600'
+      color: 'from-pink-500 to-rose-500'
     },
     {
-      icon: Lightbulb,
+      icon: Crown,
       title: 'Giá Trị Cốt Lõi',
       description: 'Chất lượng, sáng tạo, chuyên nghiệp và cam kết. Chúng tôi không ngừng nỗ lực mỗi ngày để đạt được mục tiêu và mang lại giá trị bền vững cho khách hàng.',
-      color: 'from-brand-teal to-brand-blue'
+      color: 'from-amber-500 to-yellow-500'
     }
   ]
 
