@@ -55,21 +55,21 @@ const About = () => {
       name: 'Vũ Văn Huy',
       position: 'CEO - Chief Executive Officer',
       description: 'Tốt nghiệp Đại học Bách Khoa Hà Nội, 5+ năm kinh nghiệm tại các công ty công nghệ hàng đầu Việt Nam',
-      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
+      avatar: '/images/team/vu-van-huy.jpg',
       experience: '5+ năm'
     },
     {
       name: 'Lê Thành Đạt',
       position: 'CTO - Chief Technology Officer',
       description: 'Thạc sĩ Công nghệ thông tin tại Úc, chuyên gia về AI và Machine Learning',
-      avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
+      avatar: '/images/team/le-thanh-dat.jpg',
       experience: '3+ năm'
     },
     {
       name: 'Nguyễn Phúc Lịnh',
       position: 'CCO - Chief Commercial Officer',
       description: 'Cử nhân Kinh tế tại Melbourne, chuyên gia về phát triển thị trường và quan hệ khách hàng',
-      avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
+      avatar: '/images/team/nguyen-phuc-linh.jpg',
       experience: '2+ năm'
     }
   ]
