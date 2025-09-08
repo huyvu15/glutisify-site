@@ -61,14 +61,14 @@ const About = () => {
     {
       name: 'Lê Thành Đạt',
       position: 'CTO - Chief Technology Officer',
-      description: 'Thạc sĩ Công nghệ thông tin tại Úc, chuyên gia về AI và Machine Learning',
+      description: 'Tốt nghiệp Đại học Bách Khoa Hà Nội, dày dặn kinh nghiệm outsource cho các đối tác lớn như Nhật Bản, Việt Nam',
       avatar: '/images/team/le-thanh-dat.jpg',
       experience: '3+ năm'
     },
     {
       name: 'Nguyễn Phúc Lịnh',
       position: 'CCO - Chief Commercial Officer',
-      description: 'Cử nhân Kinh tế tại Melbourne, chuyên gia về phát triển thị trường và quan hệ khách hàng',
+      description: 'Tốt nghiệp Đại học Bách Khoa Hà Nội, kinh nghiệm phát triển kinh doanh và quản lý dự án công nghệ',
       avatar: '/images/team/nguyen-phuc-linh.jpg',
       experience: '2+ năm'
     }
