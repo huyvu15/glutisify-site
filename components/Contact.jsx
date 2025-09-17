@@ -35,14 +35,14 @@ const Contact = () => {
     {
       icon: MapPin,
       title: 'Địa chỉ',
-      details: ['12 Chính Kinh, Thanh Xuân', 'Hà Nội, Việt Nam'],
+      details: ['585 Vũ Tông Phan, Thanh Xuân', 'Hà Nội, Việt Nam'],
       color: 'text-blue-600',
       bgColor: 'bg-blue-50'
     },
     {
       icon: Phone,
       title: 'Điện thoại',
-      details: ['+84 123 456 789', '+84 987 654 321'],
+      details: ['+84 827590543', '+84 827390544'],
       color: 'text-green-600',
       bgColor: 'bg-green-50'
     },
@@ -189,7 +189,7 @@ const Contact = () => {
                     <div>
                       <h4 className="font-semibold text-gray-900 text-sm mb-1">Glutisify Vietnam</h4>
                       <p className="text-xs text-gray-600 leading-relaxed">
-                        12 Chính Kinh, Thanh Xuân<br />
+                        585 Vũ Tông Phan, Thanh Xuân<br />
                         Hà Nội, Việt Nam
                       </p>
                       <motion.button

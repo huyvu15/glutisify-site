@@ -52,21 +52,21 @@ const About = () => {
 
   const teamMembers = [
     {
-      name: 'Vũ Văn Huy',
+      name: 'Huy Vũ',
       position: 'CEO - Chief Executive Officer',
       description: 'Tốt nghiệp Đại học Bách Khoa Hà Nội, 5+ năm kinh nghiệm tại các công ty công nghệ hàng đầu Việt Nam',
       avatar: '/images/team/vu-van-huy.jpg',
       experience: '5+ năm'
     },
     {
-      name: 'Lê Thành Đạt',
+      name: 'Giàu Lê',
       position: 'CTO - Chief Technology Officer',
-      description: 'Tốt nghiệp Đại học Bách Khoa Hà Nội, dày dặn kinh nghiệm outsource cho các đối tác lớn như Nhật Bản, Việt Nam',
+      description: 'Tốt nghiệp Đại học Cần Thơ  , dày dặn kinh nghiệm outsource cho các đối tác lớn như Nhật Bản, Việt Nam',
       avatar: '/images/team/le-thanh-dat.jpg',
       experience: '3+ năm'
     },
     {
-      name: 'Nguyễn Phúc Lịnh',
+      name: 'Văn Tuấn',
       position: 'CCO - Chief Commercial Officer',
       description: 'Tốt nghiệp Đại học Bách Khoa Hà Nội, kinh nghiệm phát triển kinh doanh và quản lý dự án công nghệ',
       avatar: '/images/team/nguyen-phuc-linh.jpg',

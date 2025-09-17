@@ -166,7 +166,7 @@ const Footer = () => {
                 <svg className="w-4 h-4 text-primary-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
                 </svg>
-                <span>12 Chính Kinh, Thanh Xuân, Hà Nội</span>
+                <span>585 Vũ Tông Phan, Thanh Xuân, Hà Nội</span>
               </li>
               <li className="flex items-center text-gray-300">
                 <svg className="w-4 h-4 text-primary-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
