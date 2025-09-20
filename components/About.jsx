@@ -74,24 +74,106 @@ const About = () => {
     }
   ]
 
-  const visionMission = [
+  const developmentHistory = [
     {
-      icon: Compass,
-      title: 'Tầm Nhìn',
-      description: 'Trở thành đối tác outsourcing AI & Big Data hàng đầu từ Việt Nam, được tin tưởng bởi các doanh nghiệp toàn cầu trong hành trình chuyển đổi số.',
-      color: 'from-violet-500 to-purple-500'
+      year: '2010',
+      title: 'Thành lập công ty',
+      description: 'Thành lập Công ty phát triển phần mềm cho các đối tác Mỹ, Australia, Singapore…',
+      color: 'from-blue-500 to-cyan-500'
     },
     {
-      icon: Sparkles,
-      title: 'Sứ Mệnh',
-      description: 'Mang đến giải pháp công nghệ tiên tiến, chất lượng cao với chi phí hợp lý, giúp doanh nghiệp tăng tốc đổi mới và cạnh tranh trong thời đại số.',
-      color: 'from-pink-500 to-rose-500'
+      year: '2014',
+      title: 'Ra mắt sản phẩm',
+      description: 'Ra mắt sản phẩm phần mềm quản lý bán hàng KiotViet',
+      color: 'from-green-500 to-emerald-500'
     },
     {
-      icon: Crown,
-      title: 'Giá Trị Cốt Lõi',
-      description: 'Chất lượng, sáng tạo, chuyên nghiệp và cam kết. Chúng tôi không ngừng nỗ lực mỗi ngày để đạt được mục tiêu và mang lại giá trị bền vững cho khách hàng.',
-      color: 'from-amber-500 to-yellow-500'
+      year: '2016',
+      title: 'Mốc 10.000 khách hàng',
+      description: 'Đạt 10.000 khách hàng. Nhận 2 triệu USD đầu tư từ quỹ đầu tư Seedcom và CVM017',
+      color: 'from-orange-500 to-red-500'
+    },
+    {
+      year: '2019',
+      title: 'Mốc 50.000 khách hàng',
+      description: 'Đạt 50.000 khách hàng. Nhận được khoản đầu tư 6 triệu USD từ Jungle Ventures và Traveloka',
+      color: 'from-purple-500 to-pink-500'
+    },
+    {
+      year: '2021',
+      title: 'Mốc 150.000 khách hàng',
+      description: 'Cán mốc 150.000 khách hàng sử dụng. Nhận được khoản đầu tư 45 triệu USD từ quỹ đầu tư quốc tế KKR',
+      color: 'from-indigo-500 to-violet-500'
+    }
+  ]
+
+  const missionStatement = {
+    title: 'Sứ mệnh',
+    subtitle: 'Vì một Việt Nam thịnh vượng',
+    description: 'Là tập đoàn công nghệ hàng đầu Việt Nam, Glutisify sở hữu hệ sinh thái mở rộng khác biệt, đáp ứng đầy đủ nhu cầu của hơn 300 doanh nghiệp với sứ mệnh "Vì một Việt Nam thịnh vượng".',
+    color: 'from-blue-600 to-indigo-600'
+  }
+
+  const visionStatement = {
+    title: 'Tầm nhìn',
+    subtitle: 'Trở thành tập đoàn công nghệ hàng đầu',
+    description: 'Trở thành tập đoàn công nghệ hàng đầu Việt Nam và khu vực Đông Nam Á, dẫn đầu trong việc cung cấp giải pháp AI & Big Data cho các doanh nghiệp toàn cầu.',
+    color: 'from-purple-600 to-pink-600'
+  }
+
+  const coreValues = [
+    {
+      icon: Users,
+      title: 'Khách hàng là trung tâm',
+      description: 'Đặt nhu cầu và kỳ vọng của khách hàng là kim chỉ nam cho mọi hành động. Sự hài lòng của khách hàng là thước đo thành công của chúng tôi.',
+      color: 'from-blue-500 to-cyan-500'
+    },
+    {
+      icon: Award,
+      title: 'Chất lượng vượt trội',
+      description: 'Cam kết mang đến những sản phẩm và dịch vụ chất lượng cao nhất, đáp ứng và vượt trên mong đợi của khách hàng.',
+      color: 'from-emerald-500 to-teal-500'
+    },
+    {
+      icon: Rocket,
+      title: 'Đổi mới sáng tạo',
+      description: 'Không ngừng nghiên cứu, phát triển và ứng dụng những công nghệ tiên tiến nhất để mang lại giá trị tối ưu cho khách hàng.',
+      color: 'from-orange-500 to-red-500'
+    },
+    {
+      icon: CheckCircle,
+      title: 'Tính chính trực',
+      description: 'Trân trọng lời nói của mình. Lời nói đi đôi với hành động cụ thể, xây dựng niềm tin bền vững với khách hàng và đối tác.',
+      color: 'from-purple-500 to-pink-500'
+    },
+    {
+      icon: TrendingUp,
+      title: 'Phát triển bền vững',
+      description: 'Xây dựng môi trường làm việc công bằng, hiệu quả và tạo cơ hội phát triển cho tất cả các thành viên trong tổ chức.',
+      color: 'from-indigo-500 to-violet-500'
+    }
+  ]
+
+  const awards = [
+    {
+      title: 'Sao Khuê 2015,2016,2017',
+      subtitle: 'Ngành phần mềm và dịch vụ CNTT Việt Nam',
+      icon: Star
+    },
+    {
+      title: 'Top 50 Doanh nghiệp CNTT hàng đầu Việt Nam 2018',
+      subtitle: 'Công nghệ thông tin',
+      icon: Award
+    },
+    {
+      title: 'TOP 10 Sản phẩm – Dịch vụ Tin Dùng Việt Nam 2023',
+      subtitle: 'Dịch vụ công nghệ',
+      icon: Crown
+    },
+    {
+      title: 'Hiệp hội các nhà bán lẻ Việt Nam khuyên dùng',
+      subtitle: 'Giải pháp bán lẻ',
+      icon: CheckCircle
     }
   ]
 
@@ -124,7 +206,7 @@ const About = () => {
           </p>
         </motion.div>
 
-        {/* Features Grid */}
+        {/* Features Grid
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {features.map((feature, index) => (
             <motion.div
@@ -150,9 +232,9 @@ const About = () => {
               </p>
             </motion.div>
           ))}
-        </div>
+        </div> */}
 
-        {/* Vision & Mission Section */}
+        {/* Development History Section */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -161,40 +243,196 @@ const About = () => {
         >
           <div className="text-center mb-12">
             <h3 className="heading-md text-gray-900 mb-4">
-              Tầm nhìn, Sứ mệnh & Giá trị cốt lõi
+              Lịch sử phát triển
             </h3>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Định hướng và giá trị mà chúng tôi theo đuổi trong mọi hoạt động
+              Hành trình phát triển và những cột mốc quan trọng của Glutisify
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {visionMission.map((item, index) => (
+          <div className="relative">
+            {/* Timeline line */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-primary-500 to-accent-500 rounded-full hidden lg:block" />
+            
+            <div className="space-y-8">
+              {developmentHistory.map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                  animate={inView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+                  className={`flex items-center ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}
+                >
+                  <div className={`w-full lg:w-5/12 ${index % 2 === 0 ? 'lg:pr-8' : 'lg:pl-8'}`}>
+                    <motion.div
+                      whileHover={{ y: -5, scale: 1.02 }}
+                      className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-100"
+                    >
+                      <div className="flex items-center mb-4">
+                        <motion.div
+                          whileHover={{ scale: 1.1, rotate: 5 }}
+                          transition={{ duration: 0.3 }}
+                          className={`w-12 h-12 bg-gradient-to-r ${item.color} rounded-xl flex items-center justify-center mr-4`}
+                        >
+                          <span className="text-white font-bold text-lg">{item.year}</span>
+                        </motion.div>
+                        <h4 className="text-xl font-semibold text-gray-900">
+                          {item.title}
+                        </h4>
+                      </div>
+                      <p className="text-gray-600 leading-relaxed">
+                        {item.description}
+                      </p>
+                    </motion.div>
+                  </div>
+                  
+                  {/* Timeline dot */}
+                  <div className="hidden lg:flex w-2/12 justify-center">
+                    <motion.div
+                      whileHover={{ scale: 1.2 }}
+                      className={`w-6 h-6 bg-gradient-to-r ${item.color} rounded-full border-4 border-white shadow-lg`}
+                    />
+                  </div>
+                  
+                  <div className="hidden lg:block w-5/12" />
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Mission Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="mb-16"
+        >
+          <div className="max-w-6xl mx-auto">
+            <motion.div
+              whileHover={{ y: -5 }}
+              className="bg-white rounded-3xl p-12 shadow-xl hover:shadow-2xl transition-all duration-300 border border-slate-100 text-center relative overflow-hidden"
+            >
+              {/* Background gradient */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${missionStatement.color} opacity-5`} />
+              
+              <div className="relative z-10">
+                <motion.div
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ duration: 0.3 }}
+                  className={`w-24 h-24 bg-gradient-to-r ${missionStatement.color} rounded-3xl flex items-center justify-center mx-auto mb-8`}
+                >
+                  <Compass className="w-12 h-12 text-white" />
+                </motion.div>
+                
+                <h3 className="text-4xl font-bold text-gray-900 mb-4">
+                  {missionStatement.title}
+                </h3>
+                
+                <h4 className="text-2xl font-semibold text-primary-600 mb-6">
+                  "{missionStatement.subtitle}"
+                </h4>
+                
+                <p className="text-xl text-gray-600 leading-relaxed max-w-4xl mx-auto">
+                  {missionStatement.description}
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
+
+        {/* Vision Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="mb-16"
+        >
+          <div className="max-w-6xl mx-auto">
+            <motion.div
+              whileHover={{ y: -5 }}
+              className="bg-white rounded-3xl p-12 shadow-xl hover:shadow-2xl transition-all duration-300 border border-slate-100 text-center relative overflow-hidden"
+            >
+              {/* Background gradient */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${visionStatement.color} opacity-5`} />
+              
+              <div className="relative z-10">
+                <motion.div
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ duration: 0.3 }}
+                  className={`w-24 h-24 bg-gradient-to-r ${visionStatement.color} rounded-3xl flex items-center justify-center mx-auto mb-8`}
+                >
+                  <Globe className="w-12 h-12 text-white" />
+                </motion.div>
+                
+                <h3 className="text-4xl font-bold text-gray-900 mb-4">
+                  {visionStatement.title}
+                </h3>
+                
+                <h4 className="text-2xl font-semibold text-accent-600 mb-6">
+                  {visionStatement.subtitle}
+                </h4>
+                
+                <p className="text-xl text-gray-600 leading-relaxed max-w-4xl mx-auto">
+                  {visionStatement.description}
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
+
+        {/* Core Values Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="mb-16"
+        >
+          <div className="text-center mb-12">
+            <h3 className="heading-md text-gray-900 mb-4">
+              Giá trị cốt lõi
+            </h3>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Những giá trị định hướng mọi hoạt động và quyết định của chúng tôi
+            </p>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-8">
+            {coreValues.map((item, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-                whileHover={{ y: -5 }}
-                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-100"
+                transition={{ duration: 0.6, delay: 0.9 + index * 0.1 }}
+                whileHover={{ y: -8, scale: 1.02 }}
+                className="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-100 relative overflow-hidden w-full max-w-sm"
               >
-                <motion.div
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ duration: 0.3 }}
-                  className={`w-16 h-16 bg-gradient-to-r ${item.color} rounded-2xl flex items-center justify-center mb-6`}
-                >
-                  <item.icon className="w-8 h-8 text-white" />
-                </motion.div>
-                <h4 className="text-xl font-semibold text-gray-900 mb-4">
-                  {item.title}
-                </h4>
-                <p className="text-gray-600 leading-relaxed">
-                  {item.description}
-                </p>
+                {/* Background gradient on hover */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
+                
+                <div className="relative z-10 text-center">
+                  <motion.div
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    transition={{ duration: 0.3 }}
+                    className={`w-16 h-16 bg-gradient-to-r ${item.color} rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:shadow-lg transition-all duration-300`}
+                  >
+                    <item.icon className="w-8 h-8 text-white" />
+                  </motion.div>
+                  
+                  <h4 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-primary-600 transition-colors duration-300">
+                    {item.title}
+                  </h4>
+                  
+                  <p className="text-gray-600 leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </div>
         </motion.div>
+
+        
 
         {/* Team Section */}
         <motion.div

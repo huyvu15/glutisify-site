@@ -1,6 +1,6 @@
-# Paraline Vietnam - Pixel Perfect Clone
+# Glutisify Vietnam - Pixel Perfect Clone
 
-Đây là bản sao pixel-perfect của website Paraline Vietnam được xây dựng bằng React, Next.js và TailwindCSS.
+Đây là bản sao pixel-perfect của website Glutisify Vietnam được xây dựng bằng React, Next.js và TailwindCSS.
 
 ## 🎯 Tính năng chính
 
