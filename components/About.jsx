@@ -317,13 +317,13 @@ const About = () => {
               <div className={`absolute inset-0 bg-gradient-to-br ${missionStatement.color} opacity-5`} />
               
               <div className="relative z-10">
-                <motion.div
+                {/* <motion.div
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   transition={{ duration: 0.3 }}
                   className={`w-24 h-24 bg-gradient-to-r ${missionStatement.color} rounded-3xl flex items-center justify-center mx-auto mb-8`}
                 >
                   <Compass className="w-12 h-12 text-white" />
-                </motion.div>
+                </motion.div> */}
                 
                 <h3 className="text-4xl font-bold text-gray-900 mb-4">
                   {missionStatement.title}
@@ -357,13 +357,13 @@ const About = () => {
               <div className={`absolute inset-0 bg-gradient-to-br ${visionStatement.color} opacity-5`} />
               
               <div className="relative z-10">
-                <motion.div
+                {/* <motion.div
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   transition={{ duration: 0.3 }}
                   className={`w-24 h-24 bg-gradient-to-r ${visionStatement.color} rounded-3xl flex items-center justify-center mx-auto mb-8`}
                 >
                   <Globe className="w-12 h-12 text-white" />
-                </motion.div>
+                </motion.div> */}
                 
                 <h3 className="text-4xl font-bold text-gray-900 mb-4">
                   {visionStatement.title}
@@ -446,7 +446,7 @@ const About = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 1.3 }}
-              className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-primary-500 to-accent-500 rounded-3xl mb-6"
+              // className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-primary-500 to-accent-500 rounded-3xl mb-6"
             >
               <Users className="w-10 h-10 text-white" />
             </motion.div>
