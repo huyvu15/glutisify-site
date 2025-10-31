@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion'
 
-const PageHero = ({ title, subtitle, backgroundImage }) => {
+const PageHero = ({ title, subtitle, backgroundImage, compact = false }) => {
   return (
-    <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+    <section className={`relative ${compact ? 'min-h-[32vh]' : 'min-h-[60vh]'} flex items-center justify-center overflow-hidden`}>
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <div 
@@ -46,7 +46,9 @@ const PageHero = ({ title, subtitle, backgroundImage }) => {
       </div>
 
       {/* Gradient Overlay at Bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-50 to-transparent z-10" />
+      {!compact && (
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-50 to-transparent z-10" />
+      )}
     </section>
   )
 }

@@ -187,7 +187,7 @@ const About = () => {
   ]
 
   return (
-    <section id="about" className="section-padding bg-gradient-to-br from-slate-50 via-white to-slate-50">
+    <section id="about" ref={ref} className="section-padding pt-0 bg-gradient-to-br from-slate-50 via-white to-slate-50">
       <div className="container-custom">
         {/* Header */}
         {/* <motion.div

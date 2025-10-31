@@ -40,6 +40,11 @@ const Header = () => {
       ]
     },
     { 
+      href: '/training', 
+      label: 'Đào tạo',
+      hasDropdown: false
+    },
+    { 
       href: '/projects', 
       label: 'Dự án',
       hasDropdown: false
