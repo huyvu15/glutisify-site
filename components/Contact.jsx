@@ -30,6 +30,7 @@ const Contact = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [submitError, setSubmitError] = useState('')
 
   const contactInfo = [
     {
@@ -81,25 +82,48 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setIsSubmitting(true)
-    
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000))
-    
-    setIsSubmitting(false)
-    setIsSubmitted(true)
-    
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false)
-      setFormData({
-        name: '',
-        email: '',
-        company: '',
-        phone: '',
-        service: '',
-        message: ''
+    setSubmitError('')
+
+    try {
+      const resp = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+          company: formData.company,
+          service: formData.service
+        })
       })
-    }, 3000)
+
+      const data = await resp.json().catch(() => ({}))
+      if (!resp.ok || data.success === false) {
+        throw new Error(data.error || 'Gửi thất bại, vui lòng thử lại.')
+      }
+
+      setIsSubmitted(true)
+      
+      // Reset form after 3 seconds
+      setTimeout(() => {
+        setIsSubmitted(false)
+        setFormData({
+          name: '',
+          email: '',
+          company: '',
+          phone: '',
+          service: '',
+          message: ''
+        })
+      }, 3000)
+    } catch (err) {
+      setSubmitError(String(err.message || err))
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -229,6 +253,11 @@ const Contact = () => {
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
+                  {submitError && (
+                    <div className="text-red-600 text-sm bg-red-50 border border-red-200 rounded-lg p-3">
+                      {submitError}
+                    </div>
+                  )}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
