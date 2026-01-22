@@ -56,27 +56,27 @@ const About = () => {
     {
       title: 'Khách hàng là trung tâm',
       description: 'Đặt nhu cầu và kỳ vọng của khách hàng là kim chỉ nam cho mọi hành động. Sự hài lòng của khách hàng là thước đo thành công của chúng tôi.',
-      number: '01'
+      color: 'from-red-500 to-pink-500'
     },
     {
       title: 'Chất lượng vượt trội',
       description: 'Cam kết mang đến những sản phẩm và dịch vụ chất lượng cao nhất, đáp ứng và vượt trên mong đợi của khách hàng.',
-      number: '02'
+      color: 'from-blue-500 to-cyan-500'
     },
     {
       title: 'Đổi mới sáng tạo',
       description: 'Không ngừng nghiên cứu, phát triển và ứng dụng những công nghệ tiên tiến nhất để mang lại giá trị tối ưu cho khách hàng.',
-      number: '03'
+      color: 'from-yellow-400 to-orange-500'
     },
     {
       title: 'Tính chính trực',
       description: 'Trân trọng lời nói của mình. Lời nói đi đôi với hành động cụ thể, xây dựng niềm tin bền vững với khách hàng và đối tác.',
-      number: '04'
+      color: 'from-green-500 to-emerald-500'
     },
     {
       title: 'Phát triển bền vững',
       description: 'Xây dựng môi trường làm việc công bằng, hiệu quả và tạo cơ hội phát triển cho tất cả các thành viên trong tổ chức.',
-      number: '05'
+      color: 'from-purple-500 to-indigo-500'
     }
   ]
 
@@ -112,7 +112,7 @@ const About = () => {
               className="inline-block mb-6"
             >
             </motion.div>
-            
+
             <motion.h2
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -228,47 +228,66 @@ const About = () => {
           className="mb-32"
         >
           <div className="text-center mb-16">
-            <div className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">
+            <div className="text-sm font-semibold text-primary-600 uppercase tracking-wider mb-4">
               Hành trình phát triển
             </div>
-            <h3 className="text-4xl md:text-5xl font-bold text-gray-900">
+            <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Những cột mốc quan trọng
             </h3>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Chặng đường xây dựng và khẳng định vị thế của Glutisify
+            </p>
           </div>
 
-          <div className="max-w-4xl mx-auto relative">
+          <div className="max-w-5xl mx-auto relative px-4">
             {/* Vertical line */}
-            <div className="absolute left-8 md:left-1/2 md:transform md:-translate-x-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary-300 via-accent-300 to-primary-300 hidden md:block" />
+            <div className="absolute left-8 md:left-1/2 md:transform md:-translate-x-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-primary-200 via-primary-400 to-primary-200 hidden md:block rounded-full" />
 
-            <div className="space-y-12">
+            {/* Mobile Vertical line */}
+            <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-primary-200 via-primary-400 to-primary-200 md:hidden rounded-full" />
+
+            <div className="space-y-12 md:space-y-24">
               {developmentHistory.map((item, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                  animate={inView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.6, delay: 1.1 + index * 0.2 }}
-                  className={`relative flex items-start md:items-center ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.6, delay: 0.2 + index * 0.2 }}
+                  className={`relative flex flex-col md:flex-row items-start md:items-center ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}
                 >
                   {/* Timeline dot */}
-                  <div className="absolute left-8 md:left-1/2 md:transform md:-translate-x-1/2 w-4 h-4 bg-white border-4 border-primary-500 rounded-full z-10 hidden md:block" />
+                  <div className="absolute left-8 md:left-1/2 md:transform md:-translate-x-1/2 w-8 h-8 bg-white border-4 border-primary-500 rounded-full z-10 -translate-x-1/2 shadow-lg shadow-primary-500/30 flex items-center justify-center">
+                    <div className="w-3 h-3 bg-primary-500 rounded-full" />
+                  </div>
 
-                  {/* Content */}
-                  <div className={`w-full md:w-[calc(50%-3rem)] ${index % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12 md:text-left'} ml-12 md:ml-0`}>
-                    <div className="bg-white rounded-2xl p-8 border border-gray-100 hover:border-primary-200 hover:shadow-lg transition-all duration-300">
-                      <div className="flex items-center md:flex-col md:items-start gap-4 mb-4">
-                        <div className="text-xs font-bold text-primary-600 uppercase tracking-widest">
-                          {item.month}
+                  {/* Content Spacer for Desktop */}
+                  <div className="hidden md:block w-1/2" />
+
+                  {/* Content Card */}
+                  <div className={`w-full md:w-1/2 pl-20 md:pl-0 ${index % 2 === 0 ? 'md:pr-16' : 'md:pl-16'}`}>
+                    <div className="bg-white rounded-3xl p-8 border border-gray-100 hover:border-primary-200 hover:shadow-xl transition-all duration-300 relative group">
+                      {/* Decorative corner */}
+                      <div className={`absolute top-0 ${index % 2 === 0 ? 'right-0 md:left-0' : 'left-0'} w-20 h-20 bg-gradient-to-br from-primary-50 to-transparent rounded-tl-3xl rounded-br-3xl -z-10 opacity-50 group-hover:opacity-100 transition-opacity`} />
+
+                      <div className="flex flex-col gap-4">
+                        <div className="flex items-center gap-3">
+                          <span className="px-4 py-1.5 rounded-full bg-primary-50 text-primary-600 text-sm font-bold border border-primary-100">
+                            {item.month}
+                          </span>
+                          <span className="text-2xl font-bold text-gray-300">
+                            {item.year}
+                          </span>
                         </div>
-                        <div className="text-3xl font-bold text-gray-400">
-                          {item.year}
+
+                        <div>
+                          <h4 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors">
+                            {item.title}
+                          </h4>
+                          <p className="text-gray-600 leading-relaxed">
+                            {item.description}
+                          </p>
                         </div>
                       </div>
-                      <h4 className="text-2xl font-bold text-gray-900 mb-3">
-                        {item.title}
-                      </h4>
-                      <p className="text-gray-600 leading-relaxed">
-                        {item.description}
-                      </p>
                     </div>
                   </div>
                 </motion.div>
@@ -277,7 +296,7 @@ const About = () => {
           </div>
         </motion.div>
 
-        {/* Core Values - Numbered List */}
+        {/* Core Values - Grid */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -291,34 +310,31 @@ const About = () => {
             <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Những giá trị định hướng
             </h3>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Mọi hoạt động và quyết định của chúng tôi
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Kim chỉ nam cho mọi hoạt động và quyết định của chúng tôi, định hình văn hóa và cách chúng tôi phục vụ khách hàng.
             </p>
           </div>
 
-          <div className="max-w-5xl mx-auto space-y-6">
+          <div className="flex flex-wrap justify-center gap-8 max-w-7xl mx-auto">
             {coreValues.map((value, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, x: -30 }}
-                animate={inView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.6, delay: 1.5 + index * 0.1 }}
-                className="group relative bg-white rounded-2xl p-8 md:p-10 border border-gray-100 hover:border-primary-200 hover:shadow-lg transition-all duration-300"
+                initial={{ opacity: 0, y: 30 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 1.5 + index * 0.1 }}
+                whileHover={{ y: -10 }}
+                className="group relative bg-white rounded-3xl p-8 border border-gray-100 hover:shadow-xl transition-all duration-300 overflow-hidden w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.33%-1.5rem)]"
               >
-                <div className="flex flex-col md:flex-row md:items-start gap-6">
-                  <div className="flex-shrink-0">
-                    <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center">
-                      <span className="text-2xl font-bold text-white">{value.number}</span>
-                    </div>
-                  </div>
-                  <div className="flex-1">
-                    <h4 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors">
-                      {value.title}
-                    </h4>
-                    <p className="text-lg text-gray-600 leading-relaxed">
-                      {value.description}
-                    </p>
-                  </div>
+                <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${value.color} opacity-10 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-500`} />
+
+                <div className="relative z-10">
+                  <h4 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors">
+                    {value.title}
+                  </h4>
+
+                  <p className="text-gray-600 leading-relaxed text-sm">
+                    {value.description}
+                  </p>
                 </div>
               </motion.div>
             ))}
@@ -355,7 +371,7 @@ const About = () => {
               >
                 {/* Decorative gradient */}
                 <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-primary-100/50 to-transparent rounded-full -translate-y-12 translate-x-12 group-hover:scale-150 transition-transform duration-500" />
-                
+
                 <div className="relative z-10 text-center">
                   {/* Avatar */}
                   <div className="relative mb-6 inline-block">
@@ -388,7 +404,7 @@ const About = () => {
         </motion.div>
 
         {/* Features Section - Text Only */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 2.5 }}
@@ -425,7 +441,7 @@ const About = () => {
               </div>
             </div>
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   )

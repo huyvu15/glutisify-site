@@ -40,6 +40,13 @@ export default function TrainingPage() {
       image:
         "url('https://images.unsplash.com/photo-1496096265110-f83ad7f96608?q=80&w=2070&auto=format&fit=crop')",
     },
+    {
+      key: 'App Script',
+      title: 'App Script',
+      description: 'Tự động hóa mọi thứ với App Script.',
+      image:
+        "url('https://twenty-four.io/wp-content/uploads/2024/06/Google-Apps-Script-1.png')",
+    },
   ]
 
   return (

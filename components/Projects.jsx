@@ -100,15 +100,15 @@ const Projects = () => {
 
   const categories = ['All', 'Web Application', 'Mobile App', 'IoT Solution', 'E-Learning', 'AI Solution', 'Fintech']
 
-  const filteredProjects = activeFilter === 'All' 
-    ? projects 
+  const filteredProjects = activeFilter === 'All'
+    ? projects
     : projects.filter(project => project.category === activeFilter)
 
   return (
     <section id="projects" className="section-padding bg-gradient-to-br from-slate-50 via-white to-slate-50">
-      <div className="container-custom">
+      <div ref={ref} className="container-custom">
         {/* Header */}
-        <motion.div
+        {/* <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -125,7 +125,7 @@ const Projects = () => {
             Khám phá những dự án tiêu biểu mà chúng tôi đã thực hiện, 
             thể hiện khả năng và kinh nghiệm trong nhiều lĩnh vực khác nhau.
           </p>
-        </motion.div>
+        </motion.div> */}
 
         {/* Category Filter */}
         <motion.div
@@ -140,11 +140,10 @@ const Projects = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setActiveFilter(category)}
-              className={`px-6 py-3 rounded-full font-medium transition-all duration-200 ${
-                activeFilter === category
-                  ? 'bg-gradient-to-r from-primary-500 to-primary-600 text-white shadow-lg'
-                  : 'bg-white text-gray-600 hover:bg-primary-50 hover:text-primary-600 border border-slate-200'
-              }`}
+              className={`px-6 py-3 rounded-full font-medium transition-all duration-200 ${activeFilter === category
+                ? 'bg-gradient-to-r from-primary-500 to-primary-600 text-white shadow-lg'
+                : 'bg-white text-gray-600 hover:bg-primary-50 hover:text-primary-600 border border-slate-200'
+                }`}
             >
               {category}
             </motion.button>
@@ -171,14 +170,13 @@ const Projects = () => {
                     className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  
+
                   {/* Status Badge */}
                   <div className="absolute top-4 left-4">
-                    <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                      project.status === 'Completed'
-                        ? 'bg-green-100 text-green-800'
-                        : 'bg-yellow-100 text-yellow-800'
-                    }`}>
+                    <span className={`px-3 py-1 rounded-full text-xs font-medium ${project.status === 'Completed'
+                      ? 'bg-green-100 text-green-800'
+                      : 'bg-yellow-100 text-yellow-800'
+                      }`}>
                       {project.status}
                     </span>
                   </div>

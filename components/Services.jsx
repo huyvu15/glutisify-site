@@ -128,28 +128,40 @@ const Services = () => {
   ]
 
   return (
-    <section id="services" ref={ref} className="bg-gray-50">
-      <div className="container-custom section-padding">
+    <section id="services" ref={ref} className="bg-gray-50 relative overflow-hidden">
+      {/* Decorative background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-primary-100/30 to-transparent rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-accent-100/30 to-transparent rounded-full blur-3xl" />
+      </div>
+
+      <div className="container-custom section-padding relative">
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-16">
+        <div className="flex flex-wrap justify-center gap-8 mb-32">
           {services.map((service, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.4, delay: index * 0.03 }}
-              className="group bg-white rounded-xl p-6 border border-gray-200 hover:border-primary-400 hover:shadow-lg transition-all duration-300"
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ y: -10 }}
+              className="group bg-white rounded-3xl p-8 border border-gray-100 hover:shadow-xl transition-all duration-300 w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.33%-1.5rem)]"
             >
-              <h3 className="text-lg font-bold text-gray-900 mb-2.5 group-hover:text-primary-600 transition-colors">
+              <div className="w-14 h-14 rounded-2xl bg-primary-50 flex items-center justify-center mb-6 group-hover:bg-primary-600 transition-colors duration-300">
+                <span className="text-2xl font-bold text-primary-600 group-hover:text-white transition-colors duration-300">
+                  {index + 1}
+                </span>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-primary-600 transition-colors">
                 {service.title}
               </h3>
-              <p className="text-sm text-gray-600 mb-4 leading-relaxed">
+              <p className="text-gray-600 mb-6 leading-relaxed">
                 {service.description}
               </p>
-              <ul className="space-y-1.5">
+              <ul className="space-y-3">
                 {service.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="text-xs text-gray-500 flex items-start">
-                    <span className="text-primary-500 mr-2 mt-1">•</span>
+                  <li key={featureIndex} className="text-sm text-gray-500 flex items-center">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary-500 mr-3"></span>
                     <span>{feature}</span>
                   </li>
                 ))}
@@ -158,33 +170,36 @@ const Services = () => {
           ))}
         </div>
 
-        
-
         {/* Process Section */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="mb-16"
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="mb-32"
         >
-          <div className="text-center mb-10">
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
-              Quy trình làm việc
+          <div className="text-center mb-16">
+            <span className="text-primary-600 font-semibold tracking-wider uppercase text-sm">Quy trình làm việc</span>
+            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4">
+              Đơn giản & Hiệu quả
             </h3>
-            <p className="text-gray-600 text-sm">
+            <p className="text-gray-600 max-w-2xl mx-auto">
               Quy trình chuyên nghiệp để đảm bảo chất lượng và tiến độ dự án
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+            {/* Connecting Line (Desktop) */}
+            <div className="hidden md:block absolute top-12 left-0 right-0 h-0.5 bg-gradient-to-r from-primary-100 via-primary-300 to-primary-100 -z-10" />
+
             {processSteps.map((step, index) => (
-              <div key={index} className="text-center">
-                <div className="w-10 h-10 bg-primary-600 text-white rounded-lg flex items-center justify-center mx-auto mb-3 font-bold text-sm">
-                  {step.step}
+              <div key={index} className="text-center relative">
+                <div className="w-24 h-24 bg-white border-4 border-primary-100 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm z-10">
+                  <span className="text-3xl font-bold text-gradient">{step.step}</span>
                 </div>
-                <h4 className="text-base font-bold text-gray-900 mb-1.5">
+                <h4 className="text-xl font-bold text-gray-900 mb-3">
                   {step.title}
                 </h4>
-                <p className="text-gray-600 text-xs leading-relaxed">
+                <p className="text-gray-600 leading-relaxed">
                   {step.description}
                 </p>
               </div>
@@ -194,32 +209,34 @@ const Services = () => {
 
         {/* Benefits Section */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="mb-16"
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="mb-32"
         >
-          <div className="text-center mb-10">
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
-              Tại sao chọn chúng tôi
+          <div className="text-center mb-16">
+            <span className="text-primary-600 font-semibold tracking-wider uppercase text-sm">Tại sao chọn chúng tôi</span>
+            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4">
+              Giá trị mang lại
             </h3>
-            <p className="text-gray-600 text-sm">
+            <p className="text-gray-600 max-w-2xl mx-auto">
               Chúng tôi cam kết mang đến những giá trị tốt nhất cho khách hàng
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl p-5 border border-gray-200 text-center hover:shadow-md transition-shadow"
+                className="bg-white rounded-3xl p-8 border border-gray-100 text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
               >
-                <div className="text-2xl md:text-3xl font-bold text-primary-600 mb-2">
+                <div className="text-4xl md:text-5xl font-bold text-gradient mb-4">
                   {benefit.stat}
                 </div>
-                <h4 className="text-base font-bold text-gray-900 mb-1.5">
+                <h4 className="text-lg font-bold text-gray-900 mb-3">
                   {benefit.title}
                 </h4>
-                <p className="text-gray-600 text-xs leading-relaxed">
+                <p className="text-gray-600 text-sm leading-relaxed">
                   {benefit.description}
                 </p>
               </div>
@@ -229,29 +246,31 @@ const Services = () => {
 
         {/* FAQ Section */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="mb-16"
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="mb-32"
         >
-          <div className="text-center mb-10">
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+          <div className="text-center mb-16">
+            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Câu hỏi thường gặp
             </h3>
-            <p className="text-gray-600 text-sm">
-              Những câu hỏi phổ biến về dịch vụ của chúng tôi
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Giải đáp những thắc mắc phổ biến của khách hàng
             </p>
           </div>
-          <div className="max-w-3xl mx-auto space-y-3">
+
+          <div className="max-w-3xl mx-auto space-y-4">
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl p-5 border border-gray-200 hover:shadow-md transition-shadow"
+                className="bg-white rounded-2xl p-6 border border-gray-100 hover:border-primary-200 hover:shadow-lg transition-all duration-300"
               >
-                <h4 className="text-base font-bold text-gray-900 mb-2">
+                <h4 className="text-lg font-bold text-gray-900 mb-3 flex items-center">
+                  <span className="w-8 h-8 rounded-full bg-primary-50 text-primary-600 flex items-center justify-center text-sm font-bold mr-3">Q</span>
                   {faq.question}
                 </h4>
-                <p className="text-gray-600 text-sm leading-relaxed">
+                <p className="text-gray-600 leading-relaxed pl-11">
                   {faq.answer}
                 </p>
               </div>
@@ -261,31 +280,41 @@ const Services = () => {
 
         {/* CTA Section */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.7 }}
-          className="bg-primary-600 rounded-xl p-10 md:p-12 text-center text-white"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={inView ? { opacity: 1, scale: 1 } : {}}
+          transition={{ duration: 0.8, delay: 0.7 }}
+          className="bg-gradient-to-r from-primary-600 to-primary-800 rounded-3xl p-12 md:p-16 text-center text-white shadow-2xl relative overflow-hidden"
         >
-          <h3 className="text-2xl md:text-3xl font-bold mb-3">
-            Cần tư vấn về dự án của bạn?
-          </h3>
-          <p className="text-base mb-8 max-w-2xl mx-auto opacity-90">
-            Đội ngũ chuyên gia của chúng tôi sẵn sàng hỗ trợ bạn tìm ra giải pháp phù hợp nhất
-            cho nhu cầu kinh doanh.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-            <button
-              onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-white text-primary-600 hover:bg-gray-100 font-semibold py-2.5 px-7 rounded-lg transition-colors text-sm"
-            >
-              Liên hệ tư vấn
-            </button>
-            <button
-              onClick={() => document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' })}
-              className="border-2 border-white text-white hover:bg-white hover:text-primary-600 font-semibold py-2.5 px-7 rounded-lg transition-all text-sm"
-            >
-              Xem portfolio
-            </button>
+          {/* Decorative circles */}
+          <div className="absolute top-0 left-0 w-64 h-64 bg-white/10 rounded-full -translate-x-1/2 -translate-y-1/2 blur-2xl" />
+          <div className="absolute bottom-0 right-0 w-64 h-64 bg-white/10 rounded-full translate-x-1/2 translate-y-1/2 blur-2xl" />
+
+          <div className="relative z-10">
+            <h3 className="text-3xl md:text-4xl font-bold mb-6">
+              Sẵn sàng bắt đầu dự án của bạn?
+            </h3>
+            <p className="text-lg mb-10 max-w-2xl mx-auto text-primary-100">
+              Đội ngũ chuyên gia của chúng tôi sẵn sàng hỗ trợ bạn tìm ra giải pháp phù hợp nhất
+              cho nhu cầu kinh doanh.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
+                className="bg-white text-primary-600 hover:bg-gray-50 font-bold py-4 px-8 rounded-full shadow-lg transition-all"
+              >
+                Liên hệ tư vấn
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' })}
+                className="bg-transparent border-2 border-white text-white hover:bg-white/10 font-bold py-4 px-8 rounded-full transition-all"
+              >
+                Xem portfolio
+              </motion.button>
+            </div>
           </div>
         </motion.div>
       </div>
