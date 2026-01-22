@@ -24,7 +24,7 @@ export default function TrainingPage() {
       title: 'Networking',
       description: 'Mạng máy tính thực tiễn: TCP/IP, routing, load balancing, observability.',
       image:
-        "url('https://images.unsplash.com/photo-1558494947-04bc3bfbf0d5?q=80&w=2070&auto=format&fit=crop')",
+        "url('https://bachkhoa-aptech.edu.vn/Uploads/resources/upload/image/tim-hieu-chung-ve-may-tinh-ccna-v6.png')",
     },
     {
       key: 'applied-ml',

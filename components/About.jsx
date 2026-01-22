@@ -121,7 +121,7 @@ const About = () => {
             >
               Với hơn{' '}
               <span className="relative inline-block">
-                <span className="text-gradient">8 năm</span>
+                <span className="text-gradient">5 năm</span>
                 <motion.span
                   initial={{ width: 0 }}
                   animate={inView ? { width: '100%' } : {}}
