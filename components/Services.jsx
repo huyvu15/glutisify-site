@@ -1,5 +1,12 @@
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 import { useInView } from 'react-intersection-observer'
+import {
+  Globe, Smartphone, Server, Users, Terminal, Cloud, Shield, Lightbulb, Wrench,
+  Clock, Zap, Award, Headphones,
+  MessageSquare, PenTool, Code2, LifeBuoy,
+  CheckCircle2, ArrowRight, Play, HelpCircle
+} from 'lucide-react'
 
 const Services = () => {
   const [ref, inView] = useInView({
@@ -9,46 +16,55 @@ const Services = () => {
 
   const services = [
     {
+      icon: <Globe className="w-6 h-6" />,
       title: 'Phát triển Web',
       description: 'Chúng tôi áp dụng công nghệ mới để phát triển Web trên nhiều nền tảng khác nhau, nhằm mang lại trải nghiệm người dùng tốt nhất.',
       features: ['Responsive Design', 'SEO Optimization', 'Performance Tuning', 'Cross-browser Compatibility']
     },
     {
+      icon: <Smartphone className="w-6 h-6" />,
       title: 'Phát triển Ứng dụng Di động',
       description: 'Paraline có kinh nghiệm rộng rãi trong việc phát triển ứng dụng công khai trên store và ứng dụng doanh nghiệp.',
       features: ['iOS Development', 'Android Development', 'Cross-platform Apps', 'App Store Optimization']
     },
     {
+      icon: <Server className="w-6 h-6" />,
       title: 'Tích hợp Hệ thống',
       description: 'Chúng tôi cung cấp giải pháp và dịch vụ từ các công ty như HP, IBM, Cisco, Microsoft, Oracle và Symantec.',
       features: ['System Integration', 'Data Migration', 'API Development', 'Cloud Integration']
     },
     {
+      icon: <Users className="w-6 h-6" />,
       title: 'Dịch vụ Lao động',
       description: 'Khách hàng có thể xây dựng một đội ngũ riêng biệt theo yêu cầu của khách hàng tại công ty chúng tôi.',
       features: ['Dedicated Teams', 'Staff Augmentation', 'Project Management', 'Technical Consulting']
     },
     {
+      icon: <Terminal className="w-6 h-6" />,
       title: 'Phát triển Phần mềm',
       description: 'Chúng tôi chuyên phát triển các giải pháp phần mềm tùy chỉnh phù hợp với nhu cầu cụ thể của doanh nghiệp.',
       features: ['Custom Software', 'Legacy Modernization', 'Microservices', 'DevOps Implementation']
     },
     {
+      icon: <Cloud className="w-6 h-6" />,
       title: 'Giải pháp Đám mây',
       description: 'Cung cấp các dịch vụ đám mây toàn diện để tối ưu hóa hiệu suất và giảm chi phí vận hành.',
       features: ['Cloud Migration', 'Infrastructure as Code', 'Monitoring & Analytics', 'Security & Compliance']
     },
     {
+      icon: <Shield className="w-6 h-6" />,
       title: 'Bảo mật & An ninh mạng',
       description: 'Bảo vệ hệ thống và dữ liệu của bạn với các giải pháp bảo mật tiên tiến và chuyên nghiệp.',
       features: ['Security Audit', 'Penetration Testing', 'Data Encryption', 'Compliance Management']
     },
     {
+      icon: <Lightbulb className="w-6 h-6" />,
       title: 'Tư vấn Công nghệ',
       description: 'Tư vấn chiến lược công nghệ và chuyển đổi số để tối ưu hóa quy trình kinh doanh.',
       features: ['Digital Transformation', 'Technology Strategy', 'Process Optimization', 'ROI Analysis']
     },
     {
+      icon: <Wrench className="w-6 h-6" />,
       title: 'Bảo trì & Hỗ trợ',
       description: 'Dịch vụ bảo trì và hỗ trợ 24/7 để đảm bảo hệ thống hoạt động ổn định và liên tục.',
       features: ['24/7 Support', 'System Maintenance', 'Performance Monitoring', 'Emergency Response']
@@ -57,21 +73,25 @@ const Services = () => {
 
   const benefits = [
     {
+      icon: <Clock className="w-8 h-8" />,
       title: 'Tiết kiệm thời gian',
       description: 'Quy trình làm việc tối ưu giúp giảm 50% thời gian phát triển dự án',
       stat: '50%'
     },
     {
+      icon: <Zap className="w-8 h-8" />,
       title: 'Tăng hiệu suất',
       description: 'Cải thiện hiệu suất hệ thống lên đến 300% với công nghệ tiên tiến',
       stat: '300%'
     },
     {
+      icon: <Award className="w-8 h-8" />,
       title: 'Chất lượng cao',
       description: 'Đảm bảo chất lượng sản phẩm với quy trình kiểm thử nghiêm ngặt',
       stat: '100%'
     },
     {
+      icon: <Headphones className="w-8 h-8" />,
       title: 'Hỗ trợ 24/7',
       description: 'Đội ngũ hỗ trợ chuyên nghiệp sẵn sàng 24/7 cho mọi vấn đề',
       stat: '24/7'
@@ -107,37 +127,41 @@ const Services = () => {
   const processSteps = [
     {
       step: '01',
+      icon: <MessageSquare className="w-6 h-6" />,
       title: 'Tư vấn & Phân tích',
       description: 'Chúng tôi lắng nghe và phân tích nhu cầu của bạn để đưa ra giải pháp tối ưu nhất.'
     },
     {
       step: '02',
+      icon: <PenTool className="w-6 h-6" />,
       title: 'Thiết kế & Lập kế hoạch',
       description: 'Tạo ra thiết kế chi tiết và lập kế hoạch phát triển phù hợp với yêu cầu.'
     },
     {
       step: '03',
+      icon: <Code2 className="w-6 h-6" />,
       title: 'Phát triển & Triển khai',
       description: 'Thực hiện phát triển với chất lượng cao và triển khai một cách chuyên nghiệp.'
     },
     {
       step: '04',
+      icon: <LifeBuoy className="w-6 h-6" />,
       title: 'Hỗ trợ & Bảo trì',
       description: 'Cung cấp hỗ trợ liên tục và bảo trì để đảm bảo hệ thống hoạt động ổn định.'
     }
   ]
 
   return (
-    <section id="services" ref={ref} className="bg-gray-50 relative overflow-hidden">
+    <section id="services" ref={ref} className="bg-gray-50 relative overflow-hidden py-24">
       {/* Decorative background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-primary-100/30 to-transparent rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-accent-100/30 to-transparent rounded-full blur-3xl" />
       </div>
 
-      <div className="container-custom section-padding relative">
+      <div className="container-custom relative">
         {/* Services Grid */}
-        <div className="flex flex-wrap justify-center gap-8 mb-32">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-32">
           {services.map((service, index) => (
             <motion.div
               key={index}
@@ -145,27 +169,29 @@ const Services = () => {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -10 }}
-              className="group bg-white rounded-3xl p-8 border border-gray-100 hover:shadow-xl transition-all duration-300 w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.33%-1.5rem)]"
+              className="group bg-white rounded-3xl p-8 border border-gray-100 hover:border-primary-200 hover:shadow-xl transition-all duration-300 flex flex-col h-full"
             >
-              <div className="w-14 h-14 rounded-2xl bg-primary-50 flex items-center justify-center mb-6 group-hover:bg-primary-600 transition-colors duration-300">
-                <span className="text-2xl font-bold text-primary-600 group-hover:text-white transition-colors duration-300">
-                  {index + 1}
-                </span>
+              <div className="w-14 h-14 rounded-2xl bg-primary-50 flex items-center justify-center mb-6 group-hover:bg-primary-600 transition-colors duration-300 text-primary-600 group-hover:text-white">
+                {service.icon}
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-primary-600 transition-colors">
                 {service.title}
               </h3>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-gray-600 mb-6 leading-relaxed flex-grow">
                 {service.description}
               </p>
-              <ul className="space-y-3">
+              <div className="space-y-3 pt-6 border-t border-gray-50">
                 {service.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="text-sm text-gray-500 flex items-center">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary-500 mr-3"></span>
+                  <div key={featureIndex} className="flex items-center text-sm text-gray-500">
+                    <CheckCircle2 className="w-4 h-4 text-primary-500 mr-3 flex-shrink-0" />
                     <span>{feature}</span>
-                  </li>
+                  </div>
                 ))}
-              </ul>
+              </div>
+              <div className="mt-6 pt-4 flex items-center text-primary-600 font-semibold text-sm group-hover:translate-x-2 transition-transform cursor-pointer">
+                <span>Tìm hiểu thêm</span>
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </div>
             </motion.div>
           ))}
         </div>
@@ -192,14 +218,19 @@ const Services = () => {
             <div className="hidden md:block absolute top-12 left-0 right-0 h-0.5 bg-gradient-to-r from-primary-100 via-primary-300 to-primary-100 -z-10" />
 
             {processSteps.map((step, index) => (
-              <div key={index} className="text-center relative">
-                <div className="w-24 h-24 bg-white border-4 border-primary-100 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm z-10">
-                  <span className="text-3xl font-bold text-gradient">{step.step}</span>
+              <div key={index} className="text-center relative group">
+                <div className="w-24 h-24 bg-white border-4 border-primary-100 group-hover:border-primary-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm z-10 transition-colors duration-300">
+                  <div className="text-primary-600 group-hover:scale-110 transition-transform duration-300">
+                    {step.icon}
+                  </div>
                 </div>
-                <h4 className="text-xl font-bold text-gray-900 mb-3">
+                <div className="absolute top-0 right-0 bg-primary-600 text-white text-xs font-bold px-2 py-1 rounded-full -mr-2 -mt-2 shadow-md">
+                  {step.step}
+                </div>
+                <h4 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors">
                   {step.title}
                 </h4>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-600 leading-relaxed text-sm">
                   {step.description}
                 </p>
               </div>
@@ -228,9 +259,12 @@ const Services = () => {
             {benefits.map((benefit, index) => (
               <div
                 key={index}
-                className="bg-white rounded-3xl p-8 border border-gray-100 text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
+                className="bg-white rounded-3xl p-8 border border-gray-100 text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group"
               >
-                <div className="text-4xl md:text-5xl font-bold text-gradient mb-4">
+                <div className="w-16 h-16 mx-auto bg-primary-50 rounded-2xl flex items-center justify-center mb-6 text-primary-600 group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300">
+                  {benefit.icon}
+                </div>
+                <div className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-accent-600 mb-4">
                   {benefit.stat}
                 </div>
                 <h4 className="text-lg font-bold text-gray-900 mb-3">
@@ -264,13 +298,13 @@ const Services = () => {
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl p-6 border border-gray-100 hover:border-primary-200 hover:shadow-lg transition-all duration-300"
+                className="bg-white rounded-2xl p-6 border border-gray-100 hover:border-primary-200 hover:shadow-lg transition-all duration-300 group"
               >
-                <h4 className="text-lg font-bold text-gray-900 mb-3 flex items-center">
-                  <span className="w-8 h-8 rounded-full bg-primary-50 text-primary-600 flex items-center justify-center text-sm font-bold mr-3">Q</span>
-                  {faq.question}
+                <h4 className="text-lg font-bold text-gray-900 mb-3 flex items-start">
+                  <HelpCircle className="w-6 h-6 text-primary-500 mr-3 flex-shrink-0 mt-0.5" />
+                  <span>{faq.question}</span>
                 </h4>
-                <p className="text-gray-600 leading-relaxed pl-11">
+                <p className="text-gray-600 leading-relaxed pl-9">
                   {faq.answer}
                 </p>
               </div>
@@ -298,20 +332,23 @@ const Services = () => {
               cho nhu cầu kinh doanh.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-                className="bg-white text-primary-600 hover:bg-gray-50 font-bold py-4 px-8 rounded-full shadow-lg transition-all"
-              >
-                Liên hệ tư vấn
-              </motion.button>
+              <Link href="/contact">
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="bg-white text-primary-600 hover:bg-gray-50 font-bold py-4 px-8 rounded-full shadow-lg transition-all flex items-center cursor-pointer"
+                >
+                  <MessageSquare className="w-5 h-5 mr-2" />
+                  Liên hệ tư vấn
+                </motion.div>
+              </Link>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' })}
-                className="bg-transparent border-2 border-white text-white hover:bg-white/10 font-bold py-4 px-8 rounded-full transition-all"
+                className="bg-transparent border-2 border-white text-white hover:bg-white/10 font-bold py-4 px-8 rounded-full transition-all flex items-center"
               >
+                <Play className="w-5 h-5 mr-2" />
                 Xem portfolio
               </motion.button>
             </div>

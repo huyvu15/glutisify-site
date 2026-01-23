@@ -70,14 +70,14 @@ const Projects = () => {
     },
     {
       id: 5,
-      title: 'Dating-Where tìm nơi hẹn hò lý tưởng',
+      title: 'Dating-Where tìm nơi hẹn hò',
       description: 'Ứng dụng tìm kiếm địa điểm hẹn hò lý tưởng dựa trên sở thích và vị trí của người dùng.',
       image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
       category: 'AI Solution',
       technologies: ['Python', 'TensorFlow', 'FastAPI', 'Docker'],
       date: '2023',
       status: 'Completed',
-      link: '#',
+      link: 'https://dating-where.glutisify.click',
       github: '#',
       rating: 5,
       clients: 6

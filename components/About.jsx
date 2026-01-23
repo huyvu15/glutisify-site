@@ -80,12 +80,12 @@ const About = () => {
     }
   ]
 
-  const achievements = [
-    { number: '300+', label: 'Doanh nghiệp toàn cầu' },
-    { number: '8+', label: 'Năm kinh nghiệm' },
-    { number: '150+', label: 'Chuyên gia AI' },
-    { number: '24/7', label: 'Hỗ trợ khách hàng' },
-  ]
+  // const achievements = [
+  //   { number: '300+', label: 'Doanh nghiệp toàn cầu' },
+  //   { number: '8+', label: 'Năm kinh nghiệm' },
+  //   { number: '150+', label: 'Chuyên gia AI' },
+  //   { number: '24/7', label: 'Hỗ trợ khách hàng' },
+  // ]
 
   return (
     <section id="about" ref={ref} className="relative bg-white overflow-hidden">
@@ -149,7 +149,7 @@ const About = () => {
         </motion.div>
 
         {/* Achievements Grid */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.6 }}
@@ -173,12 +173,12 @@ const About = () => {
               </motion.div>
             ))}
           </div>
-        </motion.div>
+        </motion.div> */}
 
         {/* Mission & Vision Side by Side */}
-        <div className="grid md:grid-cols-2 gap-8 mb-32">
-          {/* Mission */}
-          <motion.div
+        {/* <div className="grid md:grid-cols-2 gap-8 mb-32"> */}
+        {/* Mission */}
+        {/* <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.8 }}
@@ -196,10 +196,10 @@ const About = () => {
                 Là tập đoàn công nghệ hàng đầu Việt Nam, Glutisify sở hữu hệ sinh thái mở rộng khác biệt, đáp ứng đầy đủ nhu cầu của hơn 300 doanh nghiệp với sứ mệnh "Vì một Việt Nam thịnh vượng".
               </p>
             </div>
-          </motion.div>
+          </motion.div> */}
 
-          {/* Vision */}
-          <motion.div
+        {/* Vision */}
+        {/* <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.9 }}
@@ -218,7 +218,7 @@ const About = () => {
               </p>
             </div>
           </motion.div>
-        </div>
+        </div> */}
 
         {/* Development History - Vertical Timeline */}
         <motion.div
