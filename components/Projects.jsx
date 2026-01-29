@@ -10,6 +10,7 @@ const Projects = () => {
   })
 
   const [activeFilter, setActiveFilter] = useState('All')
+  const [visibleCount, setVisibleCount] = useState(6)
 
   const projects = [
     {
@@ -48,7 +49,7 @@ const Projects = () => {
       category: 'IoT Solution',
       technologies: ['Python', 'Raspberry Pi', 'MQTT', 'React'],
       date: '2022',
-      status: 'In Progress',
+      status: '`Completed`',
       link: '#',
       github: '#',
       rating: 4,
@@ -61,7 +62,7 @@ const Projects = () => {
       image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80',
       category: 'E-Learning',
       technologies: ['Vue.js', 'Django', 'PostgreSQL', 'WebRTC'],
-      date: '2022',
+      date: '2023',
       status: 'Completed',
       link: '#',
       github: '#',
@@ -75,7 +76,7 @@ const Projects = () => {
       image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
       category: 'AI Solution',
       technologies: ['Python', 'TensorFlow', 'FastAPI', 'Docker'],
-      date: '2023',
+      date: '2025',
       status: 'Completed',
       link: 'https://dating-where.glutisify.click',
       github: '#',
@@ -89,20 +90,134 @@ const Projects = () => {
       image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
       category: 'Fintech',
       technologies: ['Flutter', 'Node.js', 'MySQL', 'Chart.js'],
-      date: '2022',
+      date: '2024',
       status: 'Completed',
       link: '#',
       github: '#',
       rating: 4,
       clients: 20
+    },
+    {
+      id: 7,
+      title: 'Hệ thống Tìm kiếm Nhân tài AI',
+      description: 'Hệ thống HR Tech tích hợp Chatbot AI giúp sàng lọc CV từ nhiều nguồn và tương tác trực tiếp để tìm ứng viên phù hợp nhất.',
+      image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+      category: 'AI Solution',
+      technologies: ['Python', 'NLP', 'React', 'MongoDB'],
+      date: '2025',
+      status: 'Completed',
+      link: '#',
+      github: '#',
+      rating: 5,
+      clients: 10
+    },
+    {
+      id: 8,
+      title: 'Market Insights MAS',
+      description: 'Hệ thống đa tác vụ thu thập, xử lý và phân tích dữ liệu thị trường từ các sàn TMĐT (Shopee, TikTok) để đưa ra insight sản phẩm.',
+      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+      category: 'Data Analytics',
+      technologies: ['Python', 'LangChain', 'Selenium', 'PostgreSQL'],
+      date: '2026',
+      status: 'Completed',
+      link: '#',
+      github: '#',
+      rating: 5,
+      clients: 5
+    },
+    {
+      id: 9,
+      title: 'Hệ thống Chia sẻ Dữ liệu Bảo mật',
+      description: 'Giải pháp lưu trữ đám mây an toàn, cho phép phân quyền chi tiết và chia sẻ file mã hóa giữa các phòng ban.',
+      image: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+      category: 'Cloud Storage',
+      technologies: ['AWS S3', 'Node.js', 'React', 'AES-256'],
+      date: '2023',
+      status: 'Completed',
+      link: '#',
+      github: '#',
+      rating: 4,
+      clients: 12
+    },
+    {
+      id: 10,
+      title: 'Hệ thống Quản lý Hiệu thuốc',
+      description: 'Thiết kế cơ sở dữ liệu và phần mềm quản lý kho, đơn thuốc, và lịch sử bệnh nhân tối ưu cho chuỗi nhà thuốc.',
+      image: 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80',
+      category: 'Healthcare',
+      technologies: ['SQL Server', '.NET Core', 'Angular', 'Redis'],
+      date: '2023',
+      status: 'Completed',
+      link: '#',
+      github: '#',
+      rating: 5,
+      clients: 25
+    },
+    {
+      id: 11,
+      title: 'Shopee Analytics Dashboard',
+      description: 'Công cụ theo dõi và phân tích chi tiết hành vi mua sắm, xu hướng giá cả và hiệu quả gian hàng trên Shopee.',
+      image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+      category: 'E-commerce Analytics',
+      technologies: ['Python', 'Django', 'React', 'D3.js'],
+      date: '2024',
+      status: 'Completed',
+      link: '#',
+      github: '#',
+      rating: 4,
+      clients: 8
+    },
+    {
+      id: 12,
+      title: 'Memory Lane - Lưu trữ Kỉ niệm',
+      description: 'Nền tảng mạng xã hội riêng tư giúp lưu trữ hình ảnh, video kỉ niệm và tích hợp tính năng nhắc nhở sự kiện quan trọng.',
+      image: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
+      category: 'Social',
+      technologies: ['React Native', 'Firebase', 'Node.js', 'GCP'],
+      date: '2024',
+      status: 'Completed',
+      link: '#',
+      github: '#',
+      rating: 5,
+      clients: 100
+    },
+    {
+      id: 13,
+      title: 'Hệ thống Email Automation Blog',
+      description: 'Giải pháp tự động hóa Marketing, tự động gửi email thông báo newsletter chuyên nghiệp mỗi khi có bài blog mới.',
+      image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80',
+      category: 'Automation',
+      technologies: ['Node.js', 'SendGrid', 'RabbitMQ', 'Next.js'],
+      date: '2024',
+      status: 'Completed',
+      link: '#',
+      github: '#',
+      rating: 4,
+      clients: 40
+    },
+    {
+      id: 14,
+      title: 'News Aggregator Thông minh',
+      description: 'Ứng dụng đọc tin tức tổng hợp ngẫu nhiên nhưng được cá nhân hóa theo sở thích người đọc sử dụng thuật toán AI.',
+      image: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+      category: 'News Aggregator',
+      technologies: ['Flutter', 'Python', 'FastAPI', 'Elasticsearch'],
+      date: '2024',
+      status: 'Completed',
+      link: '#',
+      github: '#',
+      rating: 4,
+      clients: 15
     }
   ]
 
-  const categories = ['All', 'Web Application', 'Mobile App', 'IoT Solution', 'E-Learning', 'AI Solution', 'Fintech']
+  const categories = ['All', 'Web Application', 'Mobile App', 'IoT Solution', 'E-Learning', 'AI Solution', 'Fintech', 'Data Analytics', 'Healthcare', 'Automation', 'Cloud Storage', 'E-commerce Analytics', 'Social', 'News Aggregator']
 
   const filteredProjects = activeFilter === 'All'
     ? projects
     : projects.filter(project => project.category === activeFilter)
+
+  const displayedProjects = filteredProjects.slice(0, visibleCount)
 
   return (
     <section id="projects" className="section-padding bg-gradient-to-br from-slate-50 via-white to-slate-50">
@@ -152,7 +267,7 @@ const Projects = () => {
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project, index) => (
+          {displayedProjects.map((project, index) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 50 }}
@@ -272,20 +387,23 @@ const Projects = () => {
         </div>
 
         {/* View All Projects CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-center mt-16"
-        >
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="btn-primary text-lg px-8 py-4"
+        {visibleCount < filteredProjects.length && (
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="text-center mt-16"
           >
-            Xem tất cả dự án
-          </motion.button>
-        </motion.div>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setVisibleCount(prev => prev + 6)}
+              className="btn-primary text-lg px-8 py-4"
+            >
+              Xem thêm dự án
+            </motion.button>
+          </motion.div>
+        )}
       </div>
     </section>
   )
