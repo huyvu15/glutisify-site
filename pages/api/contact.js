@@ -6,7 +6,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ success: false, error: 'Method Not Allowed' })
   }
 
-  const endpoint = "https://script.google.com/macros/s/AKfycbyTFQZY4gZv_DzrG06jVlmQ-yZxia-LkswXTY8NOllPGtgK-REAaXcGGUh0f1yWhrNpFg/exec"
+  const endpoint = "https://script.google.com/macros/s/AKfycbyhdFN6ikAPDKwiwppQNbK-WoKbAEa81z4LlfF90Ya9Sg3ehRK7WPgV_tcpForxAkvQjA/exec"
   try {
     // Gửi dạng form-urlencoded để tương thích Apps Script
     const params = new URLSearchParams()

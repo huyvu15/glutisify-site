@@ -47,8 +47,8 @@ const About = () => {
     {
       year: '2025',
       month: 'Tháng 10',
-      title: 'Mốc 10.000 khách hàng',
-      description: 'Đạt 10.000 khách hàng. Nhận doanh thu lớn từ IAA, IAP, khẳng định vị thế trong thị trường công nghệ.',
+      title: 'Mốc 100 khách hàng',
+      description: 'Đạt 100 khách hàng. Nhận doanh thu lớn từ IAA, IAP, khẳng định vị thế trong thị trường công nghệ.',
     },
   ]
 
@@ -139,10 +139,10 @@ const About = () => {
               className="space-y-6 text-lg md:text-xl text-gray-600 leading-relaxed max-w-4xl mx-auto"
             >
               <p>
-                Glutisify đã giúp <strong className="text-gray-900">300+ doanh nghiệp</strong> trên toàn cầu đạt được mục tiêu chuyển đổi số thông qua các giải pháp AI & Big Data tiên tiến.
+                Glutisify đã giúp <strong className="text-gray-900">30+ doanh nghiệp</strong> trên toàn cầu đạt được mục tiêu chuyển đổi số thông qua các giải pháp AI & Big Data tiên tiến.
               </p>
               <p>
-                Đội ngũ <strong className="text-gray-900">150+ chuyên gia</strong> được chứng nhận quốc tế của chúng tôi tại Việt Nam cam kết mang đến những dự án chất lượng cao, đúng tiến độ và vượt trên mong đợi của khách hàng toàn cầu.
+                Đội ngũ <strong className="text-gray-900">15+ chuyên gia</strong> được chứng nhận quốc tế của chúng tôi tại Việt Nam cam kết mang đến những dự án chất lượng cao, đúng tiến độ và vượt trên mong đợi của khách hàng toàn cầu.
               </p>
             </motion.div>
           </div>

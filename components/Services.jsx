@@ -1,11 +1,12 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { useState } from 'react'
 import { useInView } from 'react-intersection-observer'
 import {
   Globe, Smartphone, Server, Users, Terminal, Cloud, Shield, Lightbulb, Wrench,
   Clock, Zap, Award, Headphones,
   MessageSquare, PenTool, Code2, LifeBuoy,
-  CheckCircle2, ArrowRight, Play, HelpCircle
+  ArrowRight, Play, HelpCircle, ChevronDown
 } from 'lucide-react'
 
 const Services = () => {
@@ -13,6 +14,9 @@ const Services = () => {
     threshold: 0.1,
     triggerOnce: true
   })
+
+  // State for FAQ accordion
+  const [activeQuestion, setActiveQuestion] = useState(0);
 
   const services = [
     {
@@ -161,36 +165,40 @@ const Services = () => {
 
       <div className="container-custom relative">
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-32">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
           {services.map((service, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -10 }}
-              className="group bg-white rounded-3xl p-8 border border-gray-100 hover:border-primary-200 hover:shadow-xl transition-all duration-300 flex flex-col h-full"
+              whileHover={{ y: -5 }}
+              className="group bg-white rounded-2xl p-6 border border-gray-100 hover:border-primary-200 hover:shadow-lg transition-all duration-300 flex flex-col h-full"
             >
-              <div className="w-14 h-14 rounded-2xl bg-primary-50 flex items-center justify-center mb-6 group-hover:bg-primary-600 transition-colors duration-300 text-primary-600 group-hover:text-white">
-                {service.icon}
+              <div className="flex items-start justify-between mb-4">
+                <div className="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center text-primary-600 group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300">
+                  {service.icon}
+                </div>
+                <div className="text-primary-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-x-2 group-hover:translate-x-0">
+                  <ArrowRight className="w-5 h-5" />
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-primary-600 transition-colors">
+
+              <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors">
                 {service.title}
               </h3>
-              <p className="text-gray-600 mb-6 leading-relaxed flex-grow">
+
+              <p className="text-gray-600 text-sm leading-relaxed mb-4 flex-grow line-clamp-3">
                 {service.description}
               </p>
-              <div className="space-y-3 pt-6 border-t border-gray-50">
-                {service.features.map((feature, featureIndex) => (
-                  <div key={featureIndex} className="flex items-center text-sm text-gray-500">
-                    <CheckCircle2 className="w-4 h-4 text-primary-500 mr-3 flex-shrink-0" />
-                    <span>{feature}</span>
-                  </div>
+
+              <div className="pt-4 border-t border-gray-50 flex flex-wrap gap-2">
+                {/* Only show first 2 features as pills to keep it neat */}
+                {service.features.slice(0, 2).map((feature, idx) => (
+                  <span key={idx} className="text-xs bg-gray-50 text-gray-500 px-2 py-1 rounded-md border border-gray-100">
+                    {feature}
+                  </span>
                 ))}
-              </div>
-              <div className="mt-6 pt-4 flex items-center text-primary-600 font-semibold text-sm group-hover:translate-x-2 transition-transform cursor-pointer">
-                <span>Tìm hiểu thêm</span>
-                <ArrowRight className="w-4 h-4 ml-2" />
               </div>
             </motion.div>
           ))}
@@ -298,15 +306,35 @@ const Services = () => {
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl p-6 border border-gray-100 hover:border-primary-200 hover:shadow-lg transition-all duration-300 group"
+                className={`bg-white rounded-2xl border transition-all duration-300 overflow-hidden ${activeQuestion === index ? 'border-primary-200 shadow-md ring-2 ring-primary-50' : 'border-gray-100 hover:border-primary-100'
+                  }`}
               >
-                <h4 className="text-lg font-bold text-gray-900 mb-3 flex items-start">
-                  <HelpCircle className="w-6 h-6 text-primary-500 mr-3 flex-shrink-0 mt-0.5" />
-                  <span>{faq.question}</span>
-                </h4>
-                <p className="text-gray-600 leading-relaxed pl-9">
-                  {faq.answer}
-                </p>
+                <button
+                  onClick={() => setActiveQuestion(activeQuestion === index ? -1 : index)}
+                  className="w-full flex items-center justify-between p-5 text-left focus:outline-none"
+                >
+                  <span className={`font-bold text-lg ${activeQuestion === index ? 'text-primary-600' : 'text-gray-900'}`}>
+                    {faq.question}
+                  </span>
+                  <ChevronDown
+                    className={`w-5 h-5 text-gray-400 transition-transform duration-300 ${activeQuestion === index ? 'transform rotate-180 text-primary-500' : ''
+                      }`}
+                  />
+                </button>
+
+                <motion.div
+                  initial={false}
+                  animate={{
+                    height: activeQuestion === index ? 'auto' : 0,
+                    opacity: activeQuestion === index ? 1 : 0
+                  }}
+                  transition={{ duration: 0.3, ease: 'easeInOut' }}
+                  className="overflow-hidden"
+                >
+                  <div className="px-5 pb-5 text-gray-600 leading-relaxed text-sm border-t border-gray-50 pt-3 mt-1">
+                    {faq.answer}
+                  </div>
+                </motion.div>
               </div>
             ))}
           </div>
@@ -317,38 +345,40 @@ const Services = () => {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={inView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 0.8, delay: 0.7 }}
-          className="bg-gradient-to-r from-primary-600 to-primary-800 rounded-3xl p-12 md:p-16 text-center text-white shadow-2xl relative overflow-hidden"
+          className="bg-gradient-to-r from-primary-600 to-primary-800 rounded-2xl p-8 md:p-10 shadow-xl relative overflow-hidden"
         >
-          {/* Decorative circles */}
-          <div className="absolute top-0 left-0 w-64 h-64 bg-white/10 rounded-full -translate-x-1/2 -translate-y-1/2 blur-2xl" />
-          <div className="absolute bottom-0 right-0 w-64 h-64 bg-white/10 rounded-full translate-x-1/2 translate-y-1/2 blur-2xl" />
+          {/* Decorative shapes */}
+          <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl translate-x-1/3 -translate-y-1/2" />
+          <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/10 rounded-full blur-2xl -translate-x-1/3 translate-y-1/2" />
 
-          <div className="relative z-10">
-            <h3 className="text-3xl md:text-4xl font-bold mb-6">
-              Sẵn sàng bắt đầu dự án của bạn?
-            </h3>
-            <p className="text-lg mb-10 max-w-2xl mx-auto text-primary-100">
-              Đội ngũ chuyên gia của chúng tôi sẵn sàng hỗ trợ bạn tìm ra giải pháp phù hợp nhất
-              cho nhu cầu kinh doanh.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/contact">
+          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="text-center md:text-left md:max-w-2xl">
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                Sẵn sàng bắt đầu dự án?
+              </h3>
+              <p className="text-primary-100 text-sm md:text-base leading-relaxed">
+                Đội ngũ chuyên gia của chúng tôi sẵn sàng hỗ trợ bạn tìm ra giải pháp phù hợp nhất.
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
+              <Link href="/contact" className="w-full md:w-auto">
                 <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-white text-primary-600 hover:bg-gray-50 font-bold py-4 px-8 rounded-full shadow-lg transition-all flex items-center cursor-pointer"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="bg-white text-primary-600 hover:bg-gray-50 font-bold py-3 px-6 rounded-xl shadow-md transition-all flex items-center justify-center cursor-pointer text-sm md:text-base whitespace-nowrap"
                 >
-                  <MessageSquare className="w-5 h-5 mr-2" />
+                  <MessageSquare className="w-4 h-4 mr-2" />
                   Liên hệ tư vấn
                 </motion.div>
               </Link>
               <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
                 onClick={() => document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' })}
-                className="bg-transparent border-2 border-white text-white hover:bg-white/10 font-bold py-4 px-8 rounded-full transition-all flex items-center"
+                className="bg-white/10 border border-white/20 text-white hover:bg-white/20 font-bold py-3 px-6 rounded-xl transition-all flex items-center justify-center text-sm md:text-base whitespace-nowrap"
               >
-                <Play className="w-5 h-5 mr-2" />
+                <Play className="w-4 h-4 mr-2" />
                 Xem portfolio
               </motion.button>
             </div>
