@@ -109,7 +109,7 @@ const Footer = () => {
 
             <h4 className="text-[18px] font-black mb-4 uppercase tracking-wide">Địa chỉ</h4>
             <p className="text-[15px] leading-relaxed text-white/90">
-              Số 11 Ngõ 90 Đường Khuất Duy Tiến, phường Nhân Chính, Thanh Xuân, Hà Nội
+              585 Vũ Tông Phan, Thanh Xuân, Hà Nội
             </p>
           </motion.div>
 
