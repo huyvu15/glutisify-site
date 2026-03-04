@@ -27,7 +27,7 @@ const Footer = () => {
               <div className="flex flex-col">
                 <span className="text-2xl font-black text-white leading-none">GLUTI</span>
                 <span className="text-2xl font-black text-white leading-none">SIFY</span>
-                <span className="text-[10px] font-bold text-white/80 mt-1 tracking-[0.2em] uppercase">Digital Innovation</span>
+                <span className="text-[10px] font-bold text-white/80 mt-1 tracking-[0.2em] uppercase">Solution Architect</span>
               </div>
             </div>
 
