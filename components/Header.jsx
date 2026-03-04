@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, ChevronDown } from 'lucide-react'
+import { Menu, X, ChevronDown, Search } from 'lucide-react'
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -17,59 +17,62 @@ const Header = () => {
   }, [])
 
   const navItems = [
-    { 
-      href: '/', 
-      label: 'Trang chủ',
-      hasDropdown: false
-    },
-    { 
-      href: '/about', 
-      label: 'Về chúng tôi',
-      hasDropdown: false
-    },
-    { 
-      href: '/services', 
-      label: 'Dịch vụ',
+    {
+      href: '#',
+      label: 'Hệ sinh thái',
       hasDropdown: true,
       dropdownItems: [
         { href: '/services/machine-learning', label: 'Machine Learning Development' },
         { href: '/services/big-data', label: 'Big Data Analytics' },
-        { href: '/services/ai-software', label: 'AI Software Development' },
-        { href: '/services/cloud-ai', label: 'Cloud AI Infrastructure' },
-        { href: '/services/computer-vision', label: 'Computer Vision' }
+        { href: '/services/ai-software', label: 'AI Software Development' }
       ]
     },
-    { 
-      href: '/training', 
-      label: 'Đào tạo',
-      hasDropdown: false
+    {
+      href: '/pricing',
+      label: 'Báo giá',
+      hasDropdown: true,
+      dropdownItems: [
+        { href: '/pricing/web', label: 'Thiết kế Web' },
+        { href: '/pricing/mobile', label: 'Ứng dụng di động' }
+      ]
     },
-    { 
-      href: '/projects', 
-      label: 'Dự án',
-      hasDropdown: false
+    {
+      href: '/customers',
+      label: 'Khách hàng',
+      hasDropdown: true,
+      dropdownItems: [
+        { href: '/projects', label: 'Dự án tiêu biểu' },
+        { href: '/testimonials', label: 'Ý kiến khách hàng' }
+      ]
     },
-    { 
-      href: '/news', 
-      label: 'Tin tức',
-      hasDropdown: false
+    {
+      href: '/news',
+      label: 'Chia sẻ',
+      hasDropdown: true,
+      dropdownItems: [
+        { href: '/news', label: 'Blog công nghệ' },
+        { href: '/news', label: 'Kiến thức AI' },
+        { href: '/training', label: 'Đào tạo' }
+      ]
     },
-    { 
-      href: '/contact', 
-      label: 'Liên hệ',
-      hasDropdown: false
+    {
+      href: '/about',
+      label: 'Về Glutisify',
+      hasDropdown: true,
+      dropdownItems: [
+        { href: '/about', label: 'Chúng tôi là ai' },
+        { href: '/contact', label: 'Liên hệ' }
+      ]
     },
   ]
 
   const handleNavigation = (href) => {
-    if (href.startsWith('#')) {
-      // Handle anchor links for same page
+    if (href.startsWith('#') && href.length > 1) {
       const element = document.querySelector(href)
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' })
       }
-    } else {
-      // Handle page navigation
+    } else if (href !== '#') {
       window.location.href = href
     }
     setIsMobileMenuOpen(false)
@@ -81,76 +84,73 @@ const Header = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100' 
-          : 'bg-transparent'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+        ? 'bg-white shadow-md'
+        : 'bg-white/90 backdrop-blur-sm'
+        }`}
     >
-      <nav className="container-custom">
-        <div className="flex items-center justify-between h-16 lg:h-20">
-           {/* Logo theo option1 */}
-           <motion.div
-             whileHover={{ scale: 1.05 }}
-             whileTap={{ scale: 0.95 }}
-             className="flex items-center"
-           >
-             <span className="text-2xl font-bold text-gray-900">
-               Gluti
-             </span>
-             <span className="text-2xl font-bold bg-gradient-to-r from-primary-400 to-primary-500 bg-clip-text text-transparent">
-               sify
-             </span>
-           </motion.div>
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-20">
+          {/* Logo matching Mega Digital style */}
+          <motion.div
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="flex flex-col cursor-pointer"
+            onClick={() => handleNavigation('/')}
+          >
+            <span className="text-xl font-black text-gray-900 leading-none">
+              GLUTI
+            </span>
+            <span className="text-xl font-black text-[#009245] leading-none">
+              SIFY
+            </span>
+            <span className="text-[8px] font-bold text-gray-500 mt-0.5 tracking-[0.2em] uppercase">
+              Solution Architect
+            </span>
+          </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
-            {navItems.map((item, index) => (
-              <div key={item.href} className="relative group">
-                 <motion.button
-                   initial={{ opacity: 0, y: -20 }}
-                   animate={{ opacity: 1, y: 0 }}
-                   transition={{ delay: index * 0.1 }}
-                   onClick={() => item.hasDropdown ? setActiveDropdown(activeDropdown === item.href ? null : item.href) : handleNavigation(item.href)}
-                   className={`relative font-medium transition-all duration-300 hover:text-primary-400 text-gray-900 py-2 group`}
-                 >
-                  <span className="flex items-center gap-1">
-                    {item.label}
-                    {item.hasDropdown && (
-                      <ChevronDown 
-                        size={14} 
-                        className={`transition-transform duration-200 ${
-                          activeDropdown === item.href ? 'rotate-180' : ''
-                        }`} 
-                      />
-                    )}
-                  </span>
-                  {/* Underline effect */}
-                  <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-400 to-primary-500 transition-all duration-300 group-hover:w-full" />
-                </motion.button>
+          <div className="hidden lg:flex items-center space-x-10">
+            {navItems.map((item) => (
+              <div
+                key={item.label}
+                className="relative"
+                onMouseEnter={() => item.hasDropdown && setActiveDropdown(item.label)}
+                onMouseLeave={() => setActiveDropdown(null)}
+              >
+                <button
+                  onClick={() => !item.hasDropdown && handleNavigation(item.href)}
+                  className="flex items-center gap-1 text-[15px] font-bold text-gray-800 hover:text-primary-600 transition-colors py-8"
+                >
+                  {item.label}
+                  {item.hasDropdown && (
+                    <ChevronDown
+                      size={14}
+                      className={`transition-transform duration-200 ${activeDropdown === item.label ? 'rotate-180' : ''
+                        }`}
+                    />
+                  )}
+                </button>
 
                 {/* Dropdown Menu */}
                 {item.hasDropdown && (
                   <AnimatePresence>
-                    {activeDropdown === item.href && (
+                    {activeDropdown === item.label && (
                       <motion.div
-                        initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 10 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-64 bg-white rounded-xl shadow-large border border-gray-100 py-2 z-50"
+                        className="absolute top-[calc(100%-1rem)] left-0 w-56 bg-white shadow-xl border border-gray-100 py-3 z-50 rounded-lg"
                       >
-                        {item.dropdownItems.map((dropdownItem, dropdownIndex) => (
-                          <motion.button
-                            key={dropdownItem.href}
-                            initial={{ opacity: 0, x: -10 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: dropdownIndex * 0.05 }}
+                        {item.dropdownItems.map((dropdownItem) => (
+                          <button
+                            key={dropdownItem.label}
                             onClick={() => handleNavigation(dropdownItem.href)}
-                            className="w-full text-left px-4 py-3 text-gray-700 hover:text-primary-600 hover:bg-gray-50 transition-colors duration-200"
+                            className="w-full text-left px-5 py-2.5 text-sm text-gray-700 hover:text-primary-600 hover:bg-gray-50 transition-colors"
                           >
                             {dropdownItem.label}
-                          </motion.button>
+                          </button>
                         ))}
                       </motion.div>
                     )}
@@ -160,172 +160,79 @@ const Header = () => {
             ))}
           </div>
 
-           {/* Modern CTA Button */}
-           <motion.div
-             initial={{ opacity: 0, scale: 0.8 }}
-             animate={{ opacity: 1, scale: 1 }}
-             transition={{ delay: 0.5 }}
-             className="hidden lg:block"
-           >
-             <motion.button
-               whileHover={{ 
-                 scale: 1.05,
-                 y: -2,
-                 boxShadow: '0 10px 25px rgba(34, 197, 94, 0.3)'
-               }}
-               whileTap={{ scale: 0.95, y: 0 }}
-               onClick={() => handleNavigation('/contact')}
-               className="group relative overflow-hidden bg-gradient-to-r from-primary-500/80 via-primary-600/80 to-accent-500/80 hover:from-primary-600/90 hover:via-primary-700/90 hover:to-accent-600/90 text-white font-semibold py-2.5 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 border border-primary-400/20"
-             >
-               {/* Animated background shimmer */}
-               <motion.div
-                 animate={{
-                   x: ['-100%', '100%'],
-                 }}
-                 transition={{
-                   duration: 2.5,
-                   repeat: Infinity,
-                   ease: "linear"
-                 }}
-                 className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12"
-               />
-               
-               {/* Text with subtle animation */}
-               <motion.span
-                 whileHover={{ x: 1 }}
-                 transition={{ duration: 0.2 }}
-                 className="relative z-10 font-medium tracking-wide"
-               >
-                 Liên hệ ngay
-               </motion.span>
-               
-               {/* Ripple effect */}
-               <motion.div
-                 initial={{ scale: 0, opacity: 0 }}
-                 whileTap={{ 
-                   scale: 1.5, 
-                   opacity: [0, 0.2, 0],
-                   transition: { duration: 0.4 }
-                 }}
-                 className="absolute inset-0 bg-white/20 rounded-xl"
-               />
-             </motion.button>
-           </motion.div>
+          {/* Search and CTA */}
+          <div className="hidden lg:flex items-center space-x-6">
+            <button className="text-gray-800 hover:text-primary-600 transition-colors">
+              <Search size={20} />
+            </button>
+
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => handleNavigation('/contact')}
+              className="border-2 border-gray-900 text-gray-900 font-bold py-2.5 px-6 rounded-lg hover:bg-gray-900 hover:text-white transition-all duration-300 text-sm uppercase tracking-wide"
+            >
+              Liên hệ tư vấn
+            </motion.button>
+          </div>
 
           {/* Mobile Menu Button */}
-          <motion.button
-            whileTap={{ scale: 0.95 }}
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`lg:hidden p-2 rounded-lg transition-colors duration-200 ${
-              isScrolled ? 'text-gray-700 hover:bg-gray-100' : 'text-white hover:bg-white/10'
-            }`}
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </motion.button>
+          <div className="lg:hidden flex items-center space-x-4">
+            <button className="text-gray-800">
+              <Search size={20} />
+            </button>
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="p-2 text-gray-800"
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
-              className="lg:hidden bg-white/95 backdrop-blur-md rounded-xl mt-2 shadow-large border border-gray-100 overflow-hidden"
+              initial={{ opacity: 0, x: '100%' }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              className="fixed inset-0 top-20 bg-white z-40 lg:hidden overflow-y-auto"
             >
-              <div className="py-4 space-y-1">
-                {navItems.map((item, index) => (
-                  <div key={item.href}>
-                    <motion.button
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.1 }}
-                      onClick={() => item.hasDropdown ? setActiveDropdown(activeDropdown === item.href ? null : item.href) : handleNavigation(item.href)}
-                      className="w-full text-left px-4 py-3 text-gray-700 hover:text-primary-600 hover:bg-gray-50 transition-colors duration-200"
+              <div className="flex flex-col p-6 space-y-4">
+                {navItems.map((item) => (
+                  <div key={item.label} className="border-b border-gray-100 pb-2">
+                    <button
+                      onClick={() => item.hasDropdown ? setActiveDropdown(activeDropdown === item.label ? null : item.label) : handleNavigation(item.href)}
+                      className="w-full flex items-center justify-between text-lg font-bold text-gray-900 py-3"
                     >
-                      <span className="flex items-center gap-1">
-                        {item.label}
-                        {item.hasDropdown && (
-                          <ChevronDown 
-                            size={14} 
-                            className={`transition-transform duration-200 ${
-                              activeDropdown === item.href ? 'rotate-180' : ''
-                            }`} 
-                          />
-                        )}
-                      </span>
-                    </motion.button>
+                      {item.label}
+                      {item.hasDropdown && <ChevronDown size={20} className={activeDropdown === item.label ? 'rotate-180' : ''} />}
+                    </button>
 
-                    {/* Mobile Dropdown */}
-                    {item.hasDropdown && (
-                      <AnimatePresence>
-                        {activeDropdown === item.href && (
-                          <motion.div
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: 'auto' }}
-                            exit={{ opacity: 0, height: 0 }}
-                            transition={{ duration: 0.2 }}
-                            className="bg-gray-50"
+                    {item.hasDropdown && activeDropdown === item.label && (
+                      <div className="bg-gray-50 rounded-lg mt-2 mb-4 p-2">
+                        {item.dropdownItems.map((dropdownItem) => (
+                          <button
+                            key={dropdownItem.label}
+                            onClick={() => handleNavigation(dropdownItem.href)}
+                            className="w-full text-left px-4 py-3 text-gray-700 border-b border-gray-200 last:border-0"
                           >
-                            {item.dropdownItems.map((dropdownItem, dropdownIndex) => (
-                              <motion.button
-                                key={dropdownItem.href}
-                                initial={{ opacity: 0, x: -10 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: dropdownIndex * 0.05 }}
-                                onClick={() => handleNavigation(dropdownItem.href)}
-                                className="w-full text-left px-8 py-2 text-sm text-gray-600 hover:text-primary-600 hover:bg-gray-100 transition-colors duration-200"
-                              >
-                                {dropdownItem.label}
-                              </motion.button>
-                            ))}
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
+                            {dropdownItem.label}
+                          </button>
+                        ))}
+                      </div>
                     )}
                   </div>
                 ))}
-                <div className="px-4 pt-4 border-t border-gray-100">
-                  <motion.button
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3 }}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    onClick={() => handleNavigation('/contact')}
-                    className="group relative overflow-hidden bg-gradient-to-r from-primary-500/80 via-primary-600/80 to-accent-500/80 hover:from-primary-600/90 hover:via-primary-700/90 hover:to-accent-600/90 text-white font-semibold py-3 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 w-full border border-primary-400/20"
-                  >
-                    {/* Animated background shimmer */}
-                    <motion.div
-                      animate={{
-                        x: ['-100%', '100%'],
-                      }}
-                      transition={{
-                        duration: 2.5,
-                        repeat: Infinity,
-                        ease: "linear"
-                      }}
-                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12"
-                    />
-                    
-                    {/* Text */}
-                    <span className="relative z-10 font-medium tracking-wide">
-                      Liên hệ ngay
-                    </span>
-                    
-                    {/* Ripple effect */}
-                    <motion.div
-                      initial={{ scale: 0, opacity: 0 }}
-                      whileTap={{ 
-                        scale: 1.5, 
-                        opacity: [0, 0.2, 0],
-                        transition: { duration: 0.4 }
-                      }}
-                      className="absolute inset-0 bg-white/20 rounded-xl"
-                    />
-                  </motion.button>
-                </div>
+
+                <button
+                  onClick={() => handleNavigation('/contact')}
+                  className="w-full mt-6 bg-gray-900 text-white font-bold py-4 rounded-xl uppercase tracking-widest"
+                >
+                  Liên hệ tư vấn
+                </button>
               </div>
             </motion.div>
           )}

@@ -126,7 +126,7 @@ const About = () => {
                   initial={{ width: 0 }}
                   animate={inView ? { width: '100%' } : {}}
                   transition={{ duration: 0.8, delay: 0.8 }}
-                  className="absolute bottom-2 left-0 h-3 bg-primary-200/50 -z-10"
+                  className="absolute bottom-2 left-0 h-3 bg-[#009245]/20 -z-10"
                 />
               </span>{' '}
               kinh nghiệm
@@ -257,7 +257,7 @@ const About = () => {
                 >
                   {/* Timeline dot */}
                   <div className="absolute left-8 md:left-1/2 md:transform md:-translate-x-1/2 w-8 h-8 bg-white border-4 border-primary-500 rounded-full z-10 -translate-x-1/2 shadow-lg shadow-primary-500/30 flex items-center justify-center">
-                    <div className="w-3 h-3 bg-primary-500 rounded-full" />
+                    <div className="w-3 h-3 bg-[#009245] rounded-full" />
                   </div>
 
                   {/* Content Spacer for Desktop */}

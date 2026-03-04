@@ -4,220 +4,176 @@ import Footer from '../components/Footer'
 import PageHero from '../components/PageHero'
 import Link from 'next/link'
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 
 export default function NewsPage() {
   const [activeCategory, setActiveCategory] = useState('Tất cả');
 
-  // Danh sách các danh mục
+  // Danh sách các danh mục cập nhật theo phong cách mới
   const categories = [
     { id: 'all', name: 'Tất cả' },
-    { id: 'ai', name: 'Công nghệ AI' },
-    { id: 'bigdata', name: 'Big Data' },
-    { id: 'cloud', name: 'Cloud Computing' },
-    { id: 'event', name: 'Sự kiện' },
-    { id: 'award', name: 'Giải thưởng' },
-    { id: 'service', name: 'Dịch vụ mới' },
-    { id: 'iot', name: 'IoT' },
+    { id: 'quang-cao', name: 'Quảng cáo' },
+    { id: 'e-commerce', name: 'E-Commerce' },
+    { id: 'branding', name: 'Branding' },
+    { id: 'cong-nghe', name: 'Công nghệ AI' },
   ];
-  // Dữ liệu tin tức
+
+  // Dữ liệu tin tức cập nhật theo phong cách Mega Digital
   const newsItems = [
     {
+      id: 1,
+      title: "Hiểu bản chất để chạy quảng cáo hiệu quả",
+      excerpt: "Từ chia sẻ của các chuyên gia, hiểu bản chất để làm gì cũng dễ. Áp dụng vào chạy quảng cáo. Tất cả quảng cáo (Facebook, Google...)",
+      category: "Quảng cáo",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
+      slug: "hieu-ban-chat-quang-cao"
+    },
+    {
       id: 2,
-      title: "Dự án phân tích dữ liệu lớn cho tập đoàn bán lẻ hàng đầu Việt Nam",
-      excerpt: "Glutisify vừa hoàn thành dự án xây dựng hệ thống phân tích dữ liệu lớn giúp tối ưu chuỗi cung ứng cho một trong những tập đoàn bán lẻ lớn nhất Việt Nam, giúp giảm 40% thời gian xử lý đơn hàng.",
-      date: "28/08/2025",
-      category: "Big Data",
-      image: "https://images.unsplash.com/photo-1599658880436-c61792e70672?q=80&w=2070&auto=format&fit=crop",
-      author: "Vũ Văn Huy",
-      readTime: "7 phút",
-      slug: "retail-big-data-project"
+      title: "Xu hướng TikTok 2024 các doanh nghiệp không thể bỏ qua!",
+      excerpt: "Cùng với quá trình chuyển mình nhanh chóng của đời sống xã hội, TikTok đã trở thành một trong những nền tảng mạng xã hội bùng nổ nhất.",
+      category: "E-Commerce",
+      image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=1974&auto=format&fit=crop",
+      slug: "xu-huong-tiktok-2024"
     },
     {
       id: 3,
-      title: "Glutisify mở rộng dịch vụ cloud computing với đối tác quốc tế",
-      excerpt: "Chúng tôi vừa ký kết hợp tác chiến lược với các nhà cung cấp cloud hàng đầu để mở rộng dịch vụ và giảm chi phí cho khách hàng. Dịch vụ mới đáp ứng nhu cầu xử lý dữ liệu khổng lồ từ IoT và AI.",
-      date: "15/08/2025",
-      category: "Cloud Computing",
-      image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=2070&auto=format&fit=crop",
-      author: "Lê Thanh Đạt",
-      readTime: "6 phút",
-      slug: "cloud-partnership-expansion"
+      title: "Tối ưu chiến lược kinh doanh bằng 10 mô hình hành vi khách hàng",
+      excerpt: "Để có thể giữ chân khách hàng, tạo dựng mối quan hệ lâu dài và nâng cao doanh thu, việc đưa ra các sản phẩm phù hợp là vô cùng quan trọng.",
+      category: "Branding",
+      image: "https://images.unsplash.com/photo-1432888497205-40f29248a315?q=80&w=2070&auto=format&fit=crop",
+      slug: "toi-uu-chien-luoc-kinh-doanh"
     },
     {
       id: 4,
-      title: "Workshop: Xây dựng hệ thống Machine Learning trong doanh nghiệp vừa và nhỏ",
-      excerpt: "Glutisify tổ chức workshop miễn phí hướng dẫn các doanh nghiệp vừa và nhỏ áp dụng Machine Learning vào quy trình kinh doanh. Sự kiện đã thu hút hơn 200 doanh nghiệp tham gia và nhận được phản hồi tích cực.",
-      date: "10/08/2025",
-      category: "Sự kiện",
-      image: "https://images.unsplash.com/photo-1558021212-51b6ecfa0db9?q=80&w=1783&auto=format&fit=crop",
-      author: "Nguyễn Phúc Linh",
-      readTime: "4 phút",
-      slug: "ml-workshop-smes"
+      title: "Sức mạnh của Storytelling trong xây dựng thương hiệu",
+      excerpt: "Kể chuyện không chỉ dành cho trẻ em. Trong kinh doanh, storytelling là công cụ mạnh mẽ để kết nối cảm xúc với khách hàng.",
+      category: "Branding",
+      image: "https://images.unsplash.com/photo-1542435503-956c469947f6?q=80&w=2070&auto=format&fit=crop",
+      slug: "suc-manh-storytelling"
+    },
+    {
+      id: 5,
+      title: "Google Ads vs Facebook Ads: Đâu là lựa chọn cho SME?",
+      excerpt: "So sánh chi tiết hai nền tảng quảng cáo lớn nhất hiện nay để giúp doanh nghiệp nhỏ tối ưu hóa ngân sách marketing.",
+      category: "Quảng cáo",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
+      slug: "google-vs-facebook-ads"
     },
     {
       id: 6,
-      title: "Ra mắt dịch vụ tư vấn chuyển đổi số toàn diện cho doanh nghiệp",
-      excerpt: "Dịch vụ mới của Glutisify cung cấp giải pháp chuyển đổi số từ A-Z cho doanh nghiệp với chi phí tối ưu và hiệu quả cao. Giải pháp này đã giúp nhiều doanh nghiệp tăng hiệu suất làm việc lên 50%.",
-      date: "25/07/2025",
-      category: "Dịch vụ mới",
-      image: "https://images.unsplash.com/photo-1579403124614-197f69d8187b?q=80&w=1964&auto=format&fit=crop",
-      author: "Lê Thanh Đạt",
-      readTime: "5 phút",
-      slug: "digital-transformation-service"
-    },
-    {
-      id: 8,
-      title: "Báo cáo xu hướng công nghệ 2025: AI, Blockchain và Quantum Computing dẫn đầu",
-      excerpt: "Glutisify vừa công bố báo cáo về xu hướng công nghệ 2025, trong đó nhấn mạnh vai trò của AI, Blockchain và Quantum Computing trong việc định hình tương lai công nghệ toàn cầu.",
-      date: "10/07/2025",
-      category: "Báo cáo",
-      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1740&auto=format&fit=crop",
-      author: "Vũ Văn Huy",
-      readTime: "10 phút",
-      slug: "tech-trends-2025"
-    },
-    {
-      id: 9,
-      title: "Glutisify mở văn phòng mới tại Singapore, mở rộng thị trường Đông Nam Á",
-      excerpt: "Để đáp ứng nhu cầu ngày càng tăng từ khách hàng khu vực, Glutisify chính thức khai trương văn phòng mới tại Singapore, đánh dấu bước tiến quan trọng trong chiến lược mở rộng thị trường.",
-      date: "01/07/2025",
-      category: "Mở rộng",
-      image: "https://images.unsplash.com/photo-1565967511849-76a60a516170?q=80&w=1935&auto=format&fit=crop",
-      author: "Lê Thanh Đạt",
-      readTime: "4 phút",
-      slug: "singapore-expansion"
+      title: "Tương lai của E-commerce: Kết hợp AI để cá nhân hóa trải nghiệm",
+      excerpt: "Trí tuệ nhân tạo đang thay đổi cách chúng ta mua sắm trực tuyến. Khám phá các xu hướng cá nhân hóa mới nhất.",
+      category: "E-Commerce",
+      image: "https://images.unsplash.com/photo-1556742044-3c52d6e88c62?q=80&w=2070&auto=format&fit=crop",
+      slug: "tuong-lai-ecommerce-ai"
     }
   ];
 
   return (
     <>
       <Head>
-        <title>Tin tức công nghệ - Glutisify Vietnam</title>
-        <meta 
-          name="description" 
-          content="Cập nhật tin tức mới nhất về AI, Big Data, Cloud Computing và các dự án công nghệ của Glutisify Vietnam." 
+        <title>Bài viết & Chia sẻ - Glutisify Vietnam</title>
+        <meta
+          name="description"
+          content="Cập nhật tin tức, kiến thức về AI, Marketing và E-commerce từ Glutisify Vietnam."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="canonical" href="https://glutisify.com.vn/news" />
       </Head>
 
-      <main className="min-h-screen">
+      <main className="min-h-screen bg-white">
         <Header />
-        <PageHero 
-          title="Tin Tức & Cập Nhật"
-          subtitle="Theo dõi những tin tức mới nhất về công nghệ và hoạt động của chúng tôi"
-          backgroundImage="url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')"
-        />
-        
-        {/* News Content */}
-        <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-slate-50">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <div className="mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center">
-                Tin Tức <span className="text-blue-600">Mới Nhất</span>
-              </h2>
-              
-              {/* Category Filters */}
-              <div className="flex flex-wrap justify-center gap-3 mb-10">
-                {categories.map((category) => (
-                  <button 
-                    key={category.id}
-                    onClick={() => setActiveCategory(category.name)}
-                    className={`px-4 py-2 rounded-full transition-all duration-200 ${
-                      activeCategory === category.name 
-                        ? 'bg-blue-600 text-white shadow-md'
-                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+
+        <div className="pt-24 pb-12">
+          <PageHero
+            title="Bài viết"
+            subtitle="Chia sẻ kiến thức, xu hướng và kinh nghiệm thực chiến"
+            backgroundImage="url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=2070&auto=format&fit=crop')"
+          />
+        </div>
+
+        {/* Blog Content */}
+        <section className="py-12">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            {/* Category Filters */}
+            <div className="flex flex-wrap justify-center gap-3 mb-16 border-b border-gray-100 pb-8">
+              {categories.map((category) => (
+                <button
+                  key={category.id}
+                  onClick={() => setActiveCategory(category.name)}
+                  className={`px-6 py-2 rounded-2xl text-sm font-bold transition-all duration-300 ${activeCategory === category.name
+                    ? 'bg-primary-600 text-white shadow-lg'
+                    : 'bg-white text-gray-800 border border-gray-200 hover:border-primary-400 hover:text-primary-600'
                     }`}
+                >
+                  {category.name}
+                </button>
+              ))}
+            </div>
+
+            {/* Blog Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-16">
+              {newsItems
+                .filter(item => activeCategory === 'Tất cả' || item.category === activeCategory)
+                .map((item, index) => (
+                  <motion.div
+                    key={item.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="flex flex-col"
                   >
-                    {category.name}
-                  </button>
-                ))}
-              </div>
-              
-              {/* News Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {newsItems
-                  .filter(item => activeCategory === 'Tất cả' || item.category === activeCategory)
-                  .map((item) => (
-                  <div key={item.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                    <div className="relative h-56 w-full overflow-hidden">
-                      <img 
-                        src={item.image} 
-                        alt={item.title} 
-                        className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+                    <Link href={`/news/${item.slug}`} className="group relative block aspect-[16/16] mb-6 overflow-hidden bg-gray-100 rounded-2xl shadow-sm hover:shadow-xl transition-all">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       />
-                      <div className="absolute top-0 right-0 bg-blue-600 text-white px-3 py-1 m-3 rounded-full text-xs font-semibold shadow-md">
+                      {/* Category Badge - Added rounding */}
+                      <div className="absolute top-4 left-4 bg-black/80 backdrop-blur-sm text-white text-[10px] font-black px-3 py-1.5 uppercase tracking-widest z-10 rounded-lg">
                         {item.category}
                       </div>
-                    </div>
-                    <div className="p-6">
-                      <div className="flex items-center mb-3 text-sm text-gray-500 space-x-4">
-                        <span className="flex items-center">
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                          </svg>
-                          {item.date}
-                        </span>
-                        <span className="flex items-center">
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                          </svg>
-                          {item.readTime}
-                        </span>
-                      </div>
-                      <h3 className="text-xl font-bold text-gray-800 mb-3 line-clamp-2 hover:text-blue-600 transition-colors">
+                    </Link>
+
+                    <div className="flex flex-col flex-grow">
+                      <h3 className="text-[22px] font-black text-gray-900 leading-[1.2] mb-3 group-hover:text-primary-600 transition-colors">
                         <Link href={`/news/${item.slug}`}>
                           {item.title}
                         </Link>
                       </h3>
-                      <p className="text-gray-600 mb-4 line-clamp-3">
+
+                      <p className="text-gray-500 text-[15px] leading-relaxed mb-4 line-clamp-3">
                         {item.excerpt}
                       </p>
-                      <div className="flex justify-between items-center">
-                        <span className="text-sm font-medium text-gray-700">{item.author}</span>
-                        <Link href={`/news/${item.slug}`} className="text-blue-600 font-medium hover:text-blue-700 transition-colors flex items-center group">
-                          Đọc tiếp
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                          </svg>
+
+                      <div className="mt-auto">
+                        <Link href={`/news/${item.slug}`} className="inline-block text-[#009245] font-extrabold text-[13px] tracking-widest uppercase hover:opacity-80 transition-all border-b-2 border-transparent hover:border-[#009245]">
+                          XEM BÀI VIẾT
                         </Link>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
-              
-              {/* Pagination */}
-              <div className="mt-16 flex justify-center">
-                <nav className="inline-flex rounded-md shadow-sm">
-                  <a href="#" className="px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 rounded-l-md transition">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                    </svg>
-                  </a>
-                  <a href="#" className="px-4 py-2 border-t border-b border-gray-300 bg-blue-50 text-sm font-medium text-blue-600">
-                    1
-                  </a>
-                  <a href="#" className="px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 transition">
-                    2
-                  </a>
-                  <a href="#" className="px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 transition">
-                    3
-                  </a>
-                  <a href="#" className="px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 rounded-r-md transition">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </a>
-                </nav>
-              </div>
             </div>
-            
-            {/* Newsletter Signup */}
-            
+
+            {/* Empty State */}
+            {newsItems.filter(item => activeCategory === 'Tất cả' || item.category === activeCategory).length === 0 && (
+              <div className="text-center py-20">
+                <p className="text-gray-400 text-lg">Chưa có bài viết nào trong danh mục này.</p>
+              </div>
+            )}
+
+            {/* Pagination Button */}
+            <div className="mt-20 flex justify-center">
+              <button className="border-2 border-gray-900 text-gray-900 font-black py-4 px-12 rounded-2xl hover:bg-gray-900 hover:text-white transition-all duration-300 text-sm uppercase tracking-widest shadow-lg">
+                Xem thêm bài viết
+              </button>
+            </div>
           </div>
         </section>
-        
+
         <Footer />
       </main>
     </>
