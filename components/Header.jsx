@@ -61,6 +61,7 @@ const Header = () => {
       hasDropdown: true,
       dropdownItems: [
         { href: '/about', label: 'Chúng tôi là ai' },
+        { href: '/jobs', label: 'Tuyển dụng' },
         { href: '/contact', label: 'Liên hệ' }
       ]
     },
