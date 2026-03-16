@@ -41,7 +41,7 @@ export default function NewsPage() {
       title: "Tối ưu chiến lược kinh doanh bằng 10 mô hình hành vi khách hàng",
       excerpt: "Để có thể giữ chân khách hàng, tạo dựng mối quan hệ lâu dài và nâng cao doanh thu, việc đưa ra các sản phẩm phù hợp là vô cùng quan trọng.",
       category: "Branding",
-      image: "https://images.unsplash.com/photo-1432888497205-40f29248a315?q=80&w=2070&auto=format&fit=crop",
+      image: "https://photo.salekit.com/uploads/fchat_5b4872d13803896dd77125af/chien-luoc-marketing-quoc-te-cua-thuong-hieu-starbucks.jpg",
       slug: "toi-uu-chien-luoc-kinh-doanh"
     },
     {
